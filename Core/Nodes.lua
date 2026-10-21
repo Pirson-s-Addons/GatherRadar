@@ -93,8 +93,28 @@ local byItem = {} -- objeto -> { ids }
 
 local function Key(name) return name and name:lower() end
 
+-- Hierbas con algo mas en el nombre ("Wilted Peacebloom", "Flor de paz marchita",
+-- nuevas de Forever): la hierba cuyo nombre (ingles o del cliente) va dentro, la
+-- mas larga. Con cifras, ":" o "/" es el progreso de una mision ("Flor de paz 3/8").
+local herbNames = {} -- nombre en minusculas -> id
+local partial = {} -- cache: nombre -> id o false
+
+local function PartialHerb(key)
+    if partial[key] == nil then
+        local best, bestLen = false, 0
+        if not key:find("[%d:/]") then
+            for herb, id in pairs(herbNames) do
+                if #herb > bestLen and key:find(herb, 1, true) then best, bestLen = id, #herb end
+            end
+        end
+        partial[key] = best
+    end
+    return partial[key]
+end
+
 for id, node in pairs(NODES) do
     byName[Key(node.name)] = id
+    if node.kind == "herb" then herbNames[Key(node.name)] = id end
     if node.item then
         byItem[node.item] = byItem[node.item] or {}
         table.insert(byItem[node.item], id)
@@ -115,7 +135,11 @@ function ns.LoadItemNames()
                 if not name then return end
                 itemNames[id] = name
                 -- Hierbas: el nodo se llama como la hierba en todos los idiomas
-                if node.kind == "herb" and not byName[Key(name)] then byName[Key(name)] = id end
+                if node.kind == "herb" and not byName[Key(name)] then
+                    byName[Key(name)] = id
+                    herbNames[Key(name)] = id
+                    wipe(partial)
+                end
             end)
         end
     end
@@ -126,7 +150,7 @@ function ns.IdByName(name)
     local key = Key(name)
     if not key then return nil end
     local learned = ns.db and ns.db.names[key]
-    return learned or byName[key]
+    return learned or byName[key] or PartialHerb(key) or nil
 end
 
 -- IDs del catalogo que dan este objeto
