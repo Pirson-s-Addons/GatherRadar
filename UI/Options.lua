@@ -112,7 +112,7 @@ local function NewPanel(titleText)
 
     function ui.Button(text, tooltip, x, y, width, onClick)
         local b = CreateFrame("Button", nil, panel, "UIPanelButtonTemplate")
-        b:SetSize(width or 200, 24)
+        b:SetSize(width or 200, width == 180 and 26 or 24)
         b:SetPoint("TOPLEFT", x, y)
         b:SetText(text)
         b:SetScript("OnClick", onClick)
