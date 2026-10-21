@@ -30,11 +30,12 @@
 - **Remembers every node**: the ones you gather (exact position) and, optionally, the ones the scan sees on the minimap. What is there right now shines; remembered nodes are faded, because someone may have gathered them.
 - **World map pins** for every saved node of the zone. Shift + right-click a pin to delete it.
 - **No duplicates**: two nodes of the same kind closer than 15 yards (you choose) are the same place and only one is kept.
-- **GatherMate2_Data import**: if you have GatherMate2 and GatherMate2_Data, one click adds the Wowhead nodes you are missing. Your own nodes are never replaced.
+- **Wowhead nodes included**: one click imports the WoW Forever nodes of GatherMate2_Data (Wowhead data) you are missing, no other addon needed. Your own nodes are never replaced.
+- **World map filter**: a round button on the world map chooses which kinds (herbs, ore, treasure, fishing pools) are shown there.
 - **Arrow to the nearest node** with its name and distance, preferring what is on the minimap right now.
 - **Party sharing**: group members with GatherRadar see the nodes you find, and you see theirs, live.
 - **Session panel**: nodes gathered and materials obtained, with icons, totals and per hour.
-- **Learns your language**: node names in your client language are learned as you gather, so it works in every language.
+- **Works in your language**: herbs, ore, treasure and fishing pools are recognized by their in-game name in every official language; nodes new to Forever are learned as you gather.
 - Settings in the game's own **Options → AddOns** panel, 20 languages, no libraries.
 
 ## Installation
@@ -46,15 +47,15 @@
 ## Usage
 
 - Turn on **Find Herbs**, **Find Minerals**, **Find Treasure** or **Find Fish** in the minimap tracking menu. GatherRadar does the rest.
-- `/gr` opens the settings. `/gr session` shows the session panel, `/gr arrow` the arrow, `/gr import` imports GatherMate2_Data.
+- `/gr` opens the settings. `/gr session` shows the session panel, `/gr arrow` the arrow, `/gr import` imports the Wowhead nodes.
 - **Options → AddOns → GatherRadar → General**: what to show and where, the radar and the icon sizes.
-- **Options → AddOns → GatherRadar → Data**: saved nodes, duplicates, GatherMate2_Data import and delete.
+- **Options → AddOns → GatherRadar → Data**: saved nodes, duplicates, Wowhead node import and delete.
 
 ## Notes
 
 - Addons cannot ask the game where nodes are: GatherRadar reads the minimap with a virtual mouse, the same dots you see. Without a tracking spell turned on, only remembered nodes are shown.
 - Fishing pools are saved from the minimap only (fishing loot comes from the bobber, not the pool).
-- In a language other than English, herbs work from the start; ore and chest names are learned the first time you mine or open them. Fishing pools are only recognized in English for now.
+- Nodes new to WoW Forever (Cold Iron Deposit, Dreamroot...) are recognized in English; in other languages their name is learned the first time you gather them. Herbs with an extra word in their name (Wilted Peacebloom) count as the herb.
 
 ---
 

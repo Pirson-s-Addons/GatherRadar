@@ -58,7 +58,7 @@ local function CreateProvider()
         local map = self:GetMap():GetMapID()
         if not (map and ns.db.worldMap) then return end
         for _, kind in ipairs(ns.KIND_ORDER) do
-            if ns.db.kinds[kind] then
+            if ns.db.kinds[kind] and ns.db.mapKinds[kind] then
                 ns.EachNode(kind, map, function(coord, id)
                     self:GetMap():AcquirePin(TEMPLATE, kind, map, coord, id)
                 end)
@@ -69,8 +69,93 @@ local function CreateProvider()
     WorldMapFrame:AddDataProvider(provider)
 end
 
+-- Boton redondo del mapa del mundo con un desplegable (DropdownButton +
+-- SetupMenu), como el de DungeonQuestAtlas: que tipos salen en el mapa. Va en
+-- la columna de botones de arriba a la izquierda, debajo de los del juego y del
+-- de DungeonQuestAtlas; con la libreria de botones de otro addon, en su columna.
+local mapButton
+
+local function UpdateMapButton()
+    if not mapButton then return end
+    local any = false
+    for _, kind in ipairs(ns.KIND_ORDER) do
+        if ns.db.kinds[kind] and ns.db.mapKinds[kind] then any = true end
+    end
+    any = any and ns.db.worldMap
+    mapButton.Icon:SetDesaturated(not any)
+    mapButton.Icon:SetAlpha(any and 1 or 0.6)
+end
+
 function ns.RefreshWorldMap()
+    UpdateMapButton()
     if provider and provider:GetMap() and provider:GetMap():IsShown() then provider:RefreshAllData() end
+end
+
+local function Toggle(get, set)
+    return function()
+        set(not get())
+        ns.RefreshWorldMap()
+    end
+end
+
+local function SetupMenu(button)
+    button:SetupMenu(function(_, root)
+        root:CreateTitle(L.MAP_MENU_SHOW)
+        for _, kind in ipairs(ns.KIND_ORDER) do
+            local get = function() return ns.db.mapKinds[kind] end
+            root:CreateCheckbox(L["KIND_" .. kind:upper()], get, Toggle(get, function(v) ns.db.mapKinds[kind] = v end))
+        end
+        root:CreateDivider()
+        local shown = function() return ns.db.worldMap end
+        root:CreateCheckbox(L.SHOW_WORLDMAP, shown, Toggle(shown, function(v) ns.db.worldMap = v end))
+        root:CreateButton(L.MAP_MENU_OPTIONS, function()
+            if not InCombatLockdown() then HideUIPanel(WorldMapFrame) end
+            ns.OpenOptions()
+        end)
+    end)
+end
+
+local function PlaceAlone(button)
+    local below = 0
+    local pinButton = WorldMapTrackingPinButtonMixin and WorldMapTrackingPinButtonMixin.OnLoad
+    for _, f in ipairs(WorldMapFrame.overlayFrames or {}) do
+        if pinButton and f.OnLoad == pinButton then below = below + 1 end
+    end
+    if _G.DungeonQuestAtlasMapButton then below = below + 1 end
+    button:SetPoint("TOPLEFT", WorldMapFrame:GetCanvasContainer(), "TOPLEFT", 3, -32 * below)
+end
+
+local function CreateMapButton()
+    GatherRadarMapButtonMixin = {}
+    function GatherRadarMapButtonMixin:OnLoad()
+        self.Icon:SetAtlas(ns.KINDS.herb.atlas)
+        SetupMenu(self)
+    end
+    function GatherRadarMapButtonMixin:OnEnter()
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:AddLine("|cffd597ffGatherRadar|r")
+        GameTooltip:AddLine(L.MAP_BUTTON_TOOLTIP, 1, 1, 1)
+        GameTooltip:Show()
+    end
+    function GatherRadarMapButtonMixin:OnLeave() GameTooltip:Hide() end
+    function GatherRadarMapButtonMixin:Refresh() end -- la llama la libreria de botones al cambiar de mapa
+
+    local krowi = LibStub and LibStub("Krowi_WorldMapButtons-1.4", true)
+    if krowi then
+        mapButton = krowi:Add("GatherRadarMapButtonTemplate", "DropdownButton")
+    else
+        mapButton = CreateFrame("DropdownButton", "GatherRadarMapButton", WorldMapFrame, "GatherRadarMapButtonTemplate")
+        PlaceAlone(mapButton)
+    end
+    UpdateMapButton()
+end
+
+-- Al abrir el mapa la primera vez: ya han cargado los demas addons (DungeonQuestAtlas
+-- crea su boton en ese mismo momento, antes por orden alfabetico)
+local function MapButtonOnFirstShow()
+    if mapButton or not WorldMapFrame.GetCanvasContainer then return end
+    local ok, err = pcall(CreateMapButton)
+    if not ok and ns.db.debug then print(ns.PREFIX .. tostring(err)) end
 end
 
 -- El mapa del mundo puede cargarse despues que el addon
@@ -78,6 +163,7 @@ function ns.SetupWorldMapPins()
     local function Setup()
         CreatePinMixin()
         CreateProvider()
+        WorldMapFrame:HookScript("OnShow", MapButtonOnFirstShow)
     end
     if WorldMapFrame and MapCanvasDataProviderMixin then
         Setup()

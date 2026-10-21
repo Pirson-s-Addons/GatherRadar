@@ -30,11 +30,12 @@
 - **Recuerda cada nodo**: los que recoges (posición exacta) y, si quieres, los que el escáner ve en el minimapa. Lo que está ahora brilla; lo recordado sale atenuado, porque quizá ya lo recogió otro.
 - **Pines en el mapa del mundo** con todos los nodos guardados de la zona. Mayús + clic derecho en un pin lo borra.
 - **Sin duplicados**: dos nodos del mismo tipo a menos de 15 yardas (tú eliges) son el mismo sitio y se queda solo uno.
-- **Importa GatherMate2_Data**: si tienes GatherMate2 y GatherMate2_Data, con un clic añades los nodos de Wowhead que te faltan. Los tuyos nunca se sustituyen.
+- **Nodos de Wowhead incluidos**: con un clic importas los nodos de WoW Forever de GatherMate2_Data (datos de Wowhead) que te faltan, sin necesitar otro addon. Los tuyos nunca se sustituyen.
+- **Filtro en el mapa del mundo**: un botón redondo en el mapa elige qué tipos (hierbas, menas, tesoros, bancos de peces) salen en él.
 - **Flecha al nodo más cercano** con su nombre y distancia, dando prioridad a lo que hay ahora en el minimapa.
 - **Compartir con el grupo**: tus compañeros con GatherRadar ven los nodos que encuentras, y tú los suyos, en vivo.
 - **Panel de sesión**: nodos recogidos y materiales conseguidos, con iconos, total y por hora.
-- **Aprende tu idioma**: los nombres de los nodos en el idioma de tu cliente se aprenden al recoger, así que funciona en todos los idiomas.
+- **Funciona en tu idioma**: hierbas, menas, tesoros y bancos de peces se reconocen por su nombre del juego en todos los idiomas oficiales; los nodos nuevos de Forever se aprenden al recoger.
 - Opciones en el propio panel del juego **Opciones → AddOns**, 20 idiomas, sin librerías.
 
 ## Instalación
@@ -46,15 +47,15 @@
 ## Uso
 
 - Activa **Buscar hierbas**, **Buscar minerales**, **Buscar tesoros** o **Buscar peces** en el menú de rastreo del minimapa. GatherRadar hace el resto.
-- `/gr` abre las opciones. `/gr session` muestra el panel de sesión, `/gr arrow` la flecha, `/gr import` importa GatherMate2_Data.
+- `/gr` abre las opciones. `/gr session` muestra el panel de sesión, `/gr arrow` la flecha, `/gr import` importa los nodos de Wowhead.
 - **Opciones → AddOns → GatherRadar → General**: qué se ve y dónde, el radar y el tamaño de los iconos.
-- **Opciones → AddOns → GatherRadar → Datos**: nodos guardados, duplicados, importar GatherMate2_Data y borrar.
+- **Opciones → AddOns → GatherRadar → Datos**: nodos guardados, duplicados, importar nodos de Wowhead y borrar.
 
 ## Notas
 
 - Un addon no puede preguntar al juego dónde están los nodos: GatherRadar lee el minimapa con un ratón virtual, los mismos puntos que ves tú. Sin un rastreo activado solo salen los nodos recordados.
 - Los bancos de peces se guardan solo desde el minimapa (el botín de pesca sale del corcho, no del banco).
-- En un idioma que no sea el inglés, las hierbas funcionan desde el principio; los nombres de menas y cofres se aprenden la primera vez que los minas o abres. Los bancos de peces, de momento, solo se reconocen en inglés.
+- Los nodos nuevos de WoW Forever (Cold Iron Deposit, Dreamroot...) se reconocen en inglés; en otros idiomas su nombre se aprende la primera vez que los recoges. Las hierbas con una palabra de más (Flor de paz marchita) cuentan como la hierba.
 
 ---
 

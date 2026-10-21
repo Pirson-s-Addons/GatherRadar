@@ -122,6 +122,11 @@ Locales/hiIN.lua
 Locales/thTH.lua
 Locales/viVN.lua
 Locales/csCZ.lua
+Data/NodeNames.lua
+Data/ImportHerb.lua
+Data/ImportOre.lua
+Data/ImportTreasure.lua
+Data/ImportFish.lua
 Core/Nodes.lua
 Core/Database.lua
 Core/GatherRadar.lua

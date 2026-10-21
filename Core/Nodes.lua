@@ -123,6 +123,16 @@ end
 -- El primero de cada objeto es el nodo normal, no su version con limo
 for _, ids in pairs(byItem) do table.sort(ids) end
 
+-- Nombres del juego en el idioma del cliente (Data/NodeNames.lua): menas,
+-- tesoros y peces se reconocen sin recogerlos antes
+local localNames = ns.NODE_NAMES or {}
+for id, name in pairs(localNames) do
+    if NODES[id] then
+        byName[Key(name)] = id
+        if NODES[id].kind == "herb" then herbNames[Key(name)] = id end
+    end
+end
+
 -- Nombres de los objetos en el idioma del cliente: llegan sin orden tras pedirlos
 local itemNames = {}
 
@@ -162,6 +172,7 @@ function ns.NodeName(id)
     local learned = ns.db and ns.db.learned[id]
     if learned and learned.name then return learned.name end
     if not node then return "?" end
+    if localNames[id] then return localNames[id] end
     if node.kind == "herb" and itemNames[id] then return itemNames[id] end
     return node.name
 end
