@@ -237,7 +237,7 @@ function ns.CreateOptions()
         name = "GatherRadar",
         logo = LOGO,
         github = "https://github.com/Pirson-s-Addons/GatherRadar",
-        curseforge = "https://www.curseforge.com/wow/addons/gatherradar",
+        curseforge = "https://www.curseforge.com/wow/addons/gather-radar",
         commands = {
             { "/gr", L.CMD_OPEN },
             { "/gr session", L.CMD_SESSION },
