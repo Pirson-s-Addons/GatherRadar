@@ -1,0 +1,8 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<!-- Pin de un nodo en el mapa del mundo (UI/WorldMapPins.lua). Las texturas se
+	     crean en OnLoad. Sin bloque de scripts: el mapa pone OnEnter/OnLeave/OnMouseUp
+	     y llama a OnLoad por su cuenta. -->
+	<Frame name="GatherRadarWorldMapPinTemplate" mixin="GatherRadarWorldMapPinMixin" enableMouse="true" virtual="true">
+		<Size x="14" y="14"/>
+	</Frame>
+</Ui>

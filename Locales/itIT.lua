@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- ITALIANO (itIT)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "itIT" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Versione:"
+L["AUTHOR"] = "Autore:"
+L["LINKS"] = "Link"
+L["COMMANDS"] = "Comandi"
+L["SELECT"] = "Seleziona"
+L["SELECT_TOOLTIP"] = "Seleziona l'intero link così puoi copiarlo con Ctrl+C. WoW non permette agli addon di scrivere negli appunti, quindi l'ultimo passo tocca a te."
+L["ABOUT_DESC"] = "Erbe, minerali, forzieri e banchi di pesci sulla minimappa con l'icona di ciò che danno, e sulla mappa del mondo. Ricorda ogni nodo che raccogli o vedi, li condivide con il tuo gruppo, ti indica il più vicino con una freccia e tiene il conto della sessione. Importa GatherMate2_Data senza duplicati."
+L["CMD_OPEN"] = "Apre le opzioni."
+L["CMD_SESSION"] = "Mostra o nasconde il pannello della sessione."
+L["CMD_ARROW"] = "Mostra o nasconde la freccia verso il nodo più vicino."
+L["CMD_IMPORT"] = "Importa i nodi di GatherMate2_Data che ti mancano."
+
+-- General
+L["OPTIONS_TITLE"] = "Opzioni di GatherRadar"
+L["GENERAL"] = "Generale"
+L["DEFAULTS"] = "Valori predefiniti"
+L["HEADER_SHOW"] = "Mostra"
+L["KIND_HERB"] = "Erbe"
+L["KIND_HERB_TOOLTIP"] = "Nodi di Erbalismo. Attiva Ricerca Erbe per vederli in tempo reale."
+L["KIND_ORE"] = "Minerali"
+L["KIND_ORE_TOOLTIP"] = "Nodi di Estrazione. Attiva Ricerca Minerali per vederli in tempo reale."
+L["KIND_TREASURE"] = "Tesori"
+L["KIND_TREASURE_TOOLTIP"] = "Forzieri, bauli e altri tesori. Attiva Ricerca Tesori per vederli in tempo reale."
+L["KIND_FISH"] = "Banchi di pesci"
+L["KIND_FISH_TOOLTIP"] = "Banchi di pesci e relitti galleggianti. Attiva Ricerca Pesci per vederli in tempo reale."
+L["SHOW_MINIMAP"] = "Sulla minimappa"
+L["SHOW_MINIMAP_TOOLTIP"] = "I nodi salvati intorno a te sulla minimappa, con l'icona di ciò che danno."
+L["SHOW_WORLDMAP"] = "Sulla mappa del mondo"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Tutti i nodi salvati della zona sulla mappa del mondo. Maiusc + clic destro su un segnalino per eliminarlo."
+L["SHOW_ARROW"] = "Freccia verso il nodo più vicino"
+L["SHOW_ARROW_TOOLTIP"] = "Una freccia sullo schermo che punta al nodo più vicino, con nome e distanza. Trascinala per spostarla."
+L["SHOW_SESSION"] = "Pannello della sessione"
+L["SHOW_SESSION_TOOLTIP"] = "Nodi raccolti e materiali ottenuti dall'accesso, e all'ora."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Scansiona la minimappa"
+L["SCAN_TOOLTIP"] = "Legge i nodi che Ricerca Erbe, Ricerca Minerali, Ricerca Tesori o Ricerca Pesci mostrano sulla minimappa e ci mette la loro icona. Quelli presenti brillano; quelli ricordati sono sbiaditi."
+L["SAVE_SEEN"] = "Salva i nodi visti sulla minimappa"
+L["SAVE_SEEN_TOOLTIP"] = "Salva anche i nodi visti dalla scansione, non solo quelli che raccogli. La mappa si riempie molto più in fretta. Se disattivato, i nodi visti restano solo fino alla disconnessione."
+L["SHARE"] = "Condividi con il mio gruppo"
+L["SHARE_TOOLTIP"] = "Invia i nodi che trovi al tuo gruppo o incursione e aggiunge i loro alla tua mappa. Funziona solo con chi usa anche GatherRadar."
+L["HARD"] = "Segna ciò che non puoi ancora raccogliere"
+L["HARD_TOOLTIP"] = "Anello rosso su erbe e minerali che richiedono più abilità di quella che hai, e la freccia li salta. Gli altri colori indicano la probabilità di salire di abilità: arancione, giallo, verde, grigio."
+L["HEADER_LOOK"] = "Aspetto"
+L["MINIMAP_SIZE"] = "Dimensione icone sulla minimappa"
+L["MINIMAP_SIZE_TOOLTIP"] = "Dimensione delle icone dei nodi sulla minimappa."
+L["WORLDMAP_SIZE"] = "Dimensione icone sulla mappa del mondo"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Dimensione delle icone dei nodi sulla mappa del mondo."
+L["REMEMBERED_ALPHA"] = "Opacità dei nodi ricordati"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Quanto sono visibili i nodi salvati quando la scansione non li vede in questo momento (forse qualcuno li ha raccolti)."
+
+-- Datos
+L["DATA"] = "Dati"
+L["DATA_TITLE"] = "Dati di GatherRadar"
+L["HEADER_DATABASE"] = "Nodi salvati"
+L["HEADER_DEDUPE"] = "Duplicati"
+L["DEDUPE"] = "Stesso nodo entro"
+L["DEDUPE_TOOLTIP"] = "Due nodi dello stesso tipo più vicini di così sono lo stesso punto e ne viene tenuto solo uno."
+L["CLEANUP"] = "Rimuovi duplicati"
+L["CLEANUP_TOOLTIP"] = "Controlla tutti i nodi salvati e rimuove quelli troppo vicini a un altro dello stesso tipo."
+L["CLEANUP_DONE"] = "%d duplicati rimossi."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "Se hai GatherMate2 e GatherMate2_Data installati, puoi aggiungere i loro nodi (dati di Wowhead) a GatherRadar. Vengono aggiunti solo quelli mancanti: i tuoi nodi non vengono toccati e quelli importati troppo vicini ai tuoi vengono scartati."
+L["IMPORT"] = "Importa GatherMate2_Data"
+L["IMPORT_TOOLTIP"] = "Carica GatherMate2_Data e aggiunge i nodi che ti mancano, per i tipi attivati in Generale."
+L["IMPORT_DONE"] = "Nuovi nodi importati."
+L["IMPORT_FAILED"] = "Impossibile caricare GatherMate2_Data (%s). Serve GatherMate2 installato e attivato."
+L["HEADER_CLEAR"] = "Elimina"
+L["CLEAR_ZONE"] = "Elimina questa zona"
+L["CLEAR_ZONE_TOOLTIP"] = "Elimina tutti i nodi salvati della zona in cui ti trovi."
+L["CLEAR_ALL"] = "Elimina tutto"
+L["CLEAR_ALL_TOOLTIP"] = "Elimina tutti i nodi salvati di tutte le zone. I nomi appresi vengono mantenuti."
+L["CLEAR_ALL_CONFIRM"] = "Eliminare tutti i nodi salvati di GatherRadar? L'operazione non può essere annullata."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "Sulla minimappa in questo momento"
+L["REMEMBERED"] = "Ricordato (potrebbe essere già stato raccolto)"
+L["PIN_DELETE"] = "Maiusc + clic destro: elimina"
+L["ARROW_NONE"] = "Nessun nodo nelle vicinanze"
+L["ARROW_TOOLTIP"] = "Punta al nodo più vicino. Trascina per spostare, clic destro per nascondere."
+L["YARDS"] = "%d m"
+
+-- Sesion
+L["SESSION"] = "Sessione"
+L["SESSION_TIME"] = "Tempo: %s"
+L["SESSION_NODES"] = "%d nodi (%d/h)"
+L["SESSION_EMPTY"] = "Raccogli qualcosa per iniziare a contare."
+L["PER_HOUR"] = "%d/h"
+L["RESET"] = "Azzera"

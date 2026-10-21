@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- POLSKI (plPL)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "plPL" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Wersja:"
+L["AUTHOR"] = "Autor:"
+L["LINKS"] = "Linki"
+L["COMMANDS"] = "Polecenia"
+L["SELECT"] = "Zaznacz"
+L["SELECT_TOOLTIP"] = "Zaznacza cały link, żebyś mógł go skopiować przez Ctrl+C. WoW nie pozwala dodatkom zapisywać do schowka, więc ostatni krok należy do ciebie."
+L["ABOUT_DESC"] = "Zioła, rudy, skrzynie ze skarbami i ławice ryb na minimapie z ikoną tego, co dają, oraz na mapie świata. Zapamiętuje każde złoże, które zbierzesz lub zobaczysz, udostępnia je drużynie, wskazuje strzałką najbliższe i liczy twoją sesję. Importuje GatherMate2_Data bez duplikatów."
+L["CMD_OPEN"] = "Otwiera opcje."
+L["CMD_SESSION"] = "Pokazuje lub ukrywa panel sesji."
+L["CMD_ARROW"] = "Pokazuje lub ukrywa strzałkę do najbliższego złoża."
+L["CMD_IMPORT"] = "Importuje brakujące złoża z GatherMate2_Data."
+
+-- General
+L["OPTIONS_TITLE"] = "Opcje GatherRadar"
+L["GENERAL"] = "Ogólne"
+L["DEFAULTS"] = "Przywróć domyślne"
+L["HEADER_SHOW"] = "Pokazuj"
+L["KIND_HERB"] = "Zioła"
+L["KIND_HERB_TOOLTIP"] = "Złoża zielarstwa. Włącz Znajdź zioła, aby widzieć je na żywo."
+L["KIND_ORE"] = "Rudy"
+L["KIND_ORE_TOOLTIP"] = "Złoża górnictwa. Włącz Znajdź minerały, aby widzieć je na żywo."
+L["KIND_TREASURE"] = "Skarby"
+L["KIND_TREASURE_TOOLTIP"] = "Skrzynie, kufry i inne skarby. Włącz Znajdź skarby, aby widzieć je na żywo."
+L["KIND_FISH"] = "Ławice ryb"
+L["KIND_FISH_TOOLTIP"] = "Ławice ryb i dryfujące szczątki. Włącz Znajdź ryby, aby widzieć je na żywo."
+L["SHOW_MINIMAP"] = "Na minimapie"
+L["SHOW_MINIMAP_TOOLTIP"] = "Zapisane złoża wokół ciebie na minimapie, z ikoną tego, co dają."
+L["SHOW_WORLDMAP"] = "Na mapie świata"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Wszystkie zapisane złoża strefy na mapie świata. Shift + prawy klik na znaczniku usuwa go."
+L["SHOW_ARROW"] = "Strzałka do najbliższego złoża"
+L["SHOW_ARROW_TOOLTIP"] = "Strzałka na ekranie wskazująca najbliższe złoże, z jego nazwą i odległością. Przeciągnij, aby ją przesunąć."
+L["SHOW_SESSION"] = "Panel sesji"
+L["SHOW_SESSION_TOOLTIP"] = "Zebrane złoża i zdobyte materiały od zalogowania, oraz na godzinę."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Skanuj minimapę"
+L["SCAN_TOOLTIP"] = "Odczytuje złoża, które Znajdź zioła, Znajdź minerały, Znajdź skarby lub Znajdź ryby pokazują na minimapie, i nakłada na nie ich ikonę. Obecne świecą; zapamiętane są przygaszone."
+L["SAVE_SEEN"] = "Zapisuj złoża widziane na minimapie"
+L["SAVE_SEEN_TOOLTIP"] = "Zapisuje też złoża wykryte przez skan, nie tylko zebrane. Mapa zapełnia się dużo szybciej. Gdy wyłączone, widziane złoża są pamiętane tylko do wylogowania."
+L["SHARE"] = "Udostępniaj mojej grupie"
+L["SHARE_TOOLTIP"] = "Wysyła znalezione złoża twojej drużynie lub rajdowi i dodaje ich złoża do twojej mapy. Działa tylko z członkami, którzy też używają GatherRadar."
+L["HARD"] = "Oznaczaj to, czego jeszcze nie możesz zebrać"
+L["HARD_TOOLTIP"] = "Czerwony pierścień na ziołach i rudach wymagających wyższej umiejętności niż twoja, a strzałka je pomija. Pozostałe kolory to szansa na wzrost umiejętności: pomarańczowy, żółty, zielony, szary."
+L["HEADER_LOOK"] = "Wygląd"
+L["MINIMAP_SIZE"] = "Rozmiar ikon na minimapie"
+L["MINIMAP_SIZE_TOOLTIP"] = "Rozmiar ikon złóż na minimapie."
+L["WORLDMAP_SIZE"] = "Rozmiar ikon na mapie świata"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Rozmiar ikon złóż na mapie świata."
+L["REMEMBERED_ALPHA"] = "Krycie zapamiętanych złóż"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Jak widoczne są zapisane złoża, gdy skan ich teraz nie widzi (może ktoś je zebrał)."
+
+-- Datos
+L["DATA"] = "Dane"
+L["DATA_TITLE"] = "Dane GatherRadar"
+L["HEADER_DATABASE"] = "Zapisane złoża"
+L["HEADER_DEDUPE"] = "Duplikaty"
+L["DEDUPE"] = "To samo złoże w promieniu"
+L["DEDUPE_TOOLTIP"] = "Dwa złoża tego samego rodzaju bliżej niż ta odległość to to samo miejsce i zostaje tylko jedno."
+L["CLEANUP"] = "Usuń duplikaty"
+L["CLEANUP_TOOLTIP"] = "Przegląda wszystkie zapisane złoża i usuwa te, które są zbyt blisko innego tego samego rodzaju."
+L["CLEANUP_DONE"] = "Usunięto duplikatów: %d."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "Jeśli masz zainstalowane GatherMate2 i GatherMate2_Data, możesz dodać ich złoża (dane z Wowhead) do GatherRadar. Dodawane są tylko brakujące: twoje złoża pozostają nietknięte, a importowane zbyt blisko twoich są odrzucane."
+L["IMPORT"] = "Importuj GatherMate2_Data"
+L["IMPORT_TOOLTIP"] = "Wczytuje GatherMate2_Data i dodaje brakujące złoża dla rodzajów włączonych w Ogólne."
+L["IMPORT_DONE"] = "Zaimportowano nowe złoża."
+L["IMPORT_FAILED"] = "Nie udało się wczytać GatherMate2_Data (%s). Wymaga zainstalowanego i włączonego GatherMate2."
+L["HEADER_CLEAR"] = "Usuwanie"
+L["CLEAR_ZONE"] = "Usuń tę strefę"
+L["CLEAR_ZONE_TOOLTIP"] = "Usuwa wszystkie zapisane złoża strefy, w której jesteś."
+L["CLEAR_ALL"] = "Usuń wszystko"
+L["CLEAR_ALL_TOOLTIP"] = "Usuwa wszystkie zapisane złoża ze wszystkich stref. Poznane nazwy zostają zachowane."
+L["CLEAR_ALL_CONFIRM"] = "Usunąć wszystkie zapisane złoża GatherRadar? Tego nie można cofnąć."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "Teraz na minimapie"
+L["REMEMBERED"] = "Zapamiętane (mogło zostać zebrane)"
+L["PIN_DELETE"] = "Shift + prawy klik: usuń"
+L["ARROW_NONE"] = "Brak złóż w pobliżu"
+L["ARROW_TOOLTIP"] = "Wskazuje najbliższe złoże. Przeciągnij, aby przesunąć, prawy klik, aby ukryć."
+L["YARDS"] = "%d jd"
+
+-- Sesion
+L["SESSION"] = "Sesja"
+L["SESSION_TIME"] = "Czas: %s"
+L["SESSION_NODES"] = "Złoża: %d (%d/h)"
+L["SESSION_EMPTY"] = "Zbierz coś, aby zacząć liczenie."
+L["PER_HOUR"] = "%d/h"
+L["RESET"] = "Wyzeruj"

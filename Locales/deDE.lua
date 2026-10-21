@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- DEUTSCH (deDE)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "deDE" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Version:"
+L["AUTHOR"] = "Autor:"
+L["LINKS"] = "Links"
+L["COMMANDS"] = "Befehle"
+L["SELECT"] = "Auswählen"
+L["SELECT_TOOLTIP"] = "Markiert den ganzen Link, damit du ihn mit Strg+C kopieren kannst. WoW erlaubt Addons nicht, in die Zwischenablage zu schreiben, den letzten Schritt machst also du."
+L["ABOUT_DESC"] = "Kräuter, Erze, Schatztruhen und Fischschwärme auf deiner Minikarte mit dem Symbol dessen, was sie geben, und auf der Weltkarte. Merkt sich jedes Vorkommen, das du sammelst oder siehst, teilt sie mit deiner Gruppe, zeigt mit einem Pfeil auf das nächste und zählt deine Sitzung mit. Importiert GatherMate2_Data ohne Duplikate."
+L["CMD_OPEN"] = "Öffnet die Optionen."
+L["CMD_SESSION"] = "Zeigt oder verbirgt das Sitzungsfenster."
+L["CMD_ARROW"] = "Zeigt oder verbirgt den Pfeil zum nächsten Vorkommen."
+L["CMD_IMPORT"] = "Importiert die Vorkommen aus GatherMate2_Data, die dir fehlen."
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar – Optionen"
+L["GENERAL"] = "Allgemein"
+L["DEFAULTS"] = "Standardwerte"
+L["HEADER_SHOW"] = "Anzeigen"
+L["KIND_HERB"] = "Kräuter"
+L["KIND_HERB_TOOLTIP"] = "Vorkommen für Kräuterkunde. Aktiviere Kräutersuche, um sie live zu sehen."
+L["KIND_ORE"] = "Erze"
+L["KIND_ORE_TOOLTIP"] = "Vorkommen für Bergbau. Aktiviere Mineraliensuche, um sie live zu sehen."
+L["KIND_TREASURE"] = "Schätze"
+L["KIND_TREASURE_TOOLTIP"] = "Truhen, Schließkassetten und andere Schätze. Aktiviere Schatzsuche, um sie live zu sehen."
+L["KIND_FISH"] = "Fischschwärme"
+L["KIND_FISH_TOOLTIP"] = "Fischschwärme und treibende Wrackteile. Aktiviere Fischsuche, um sie live zu sehen."
+L["SHOW_MINIMAP"] = "Auf der Minikarte"
+L["SHOW_MINIMAP_TOOLTIP"] = "Gespeicherte Vorkommen in deiner Nähe auf der Minikarte, mit dem Symbol dessen, was sie geben."
+L["SHOW_WORLDMAP"] = "Auf der Weltkarte"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Alle gespeicherten Vorkommen der Zone auf der Weltkarte. Umschalt + Rechtsklick auf eine Markierung löscht sie."
+L["SHOW_ARROW"] = "Pfeil zum nächsten Vorkommen"
+L["SHOW_ARROW_TOOLTIP"] = "Ein Pfeil auf dem Bildschirm, der auf das nächste Vorkommen zeigt, mit Name und Entfernung. Zum Verschieben ziehen."
+L["SHOW_SESSION"] = "Sitzungsfenster"
+L["SHOW_SESSION_TOOLTIP"] = "Gesammelte Vorkommen und erhaltene Materialien seit dem Einloggen, und pro Stunde."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Minikarte scannen"
+L["SCAN_TOOLTIP"] = "Liest die Vorkommen, die Kräutersuche, Mineraliensuche, Schatzsuche oder Fischsuche auf der Minikarte anzeigen, und setzt ihr Symbol darauf. Aktuelle Vorkommen leuchten, gemerkte sind abgeblendet."
+L["SAVE_SEEN"] = "Auf der Minikarte gesehene Vorkommen speichern"
+L["SAVE_SEEN_TOOLTIP"] = "Speichert auch die Vorkommen, die der Scan sieht, nicht nur die gesammelten. So füllt sich deine Karte viel schneller. Wenn aus, bleiben gesehene Vorkommen nur bis zum Ausloggen erhalten."
+L["SHARE"] = "Mit meiner Gruppe teilen"
+L["SHARE_TOOLTIP"] = "Sendet die gefundenen Vorkommen an deine Gruppe oder deinen Schlachtzug und fügt deren Vorkommen deiner Karte hinzu. Funktioniert nur mit Mitgliedern, die auch GatherRadar nutzen."
+L["HARD"] = "Markieren, was du noch nicht sammeln kannst"
+L["HARD_TOOLTIP"] = "Roter Ring um Kräuter und Erze, für die deine Fertigkeit noch nicht reicht, und der Pfeil überspringt sie. Die anderen Farben zeigen deine Chance auf einen Fertigkeitspunkt: Orange, Gelb, Grün, Grau."
+L["HEADER_LOOK"] = "Darstellung"
+L["MINIMAP_SIZE"] = "Symbolgröße auf der Minikarte"
+L["MINIMAP_SIZE_TOOLTIP"] = "Größe der Vorkommen-Symbole auf der Minikarte."
+L["WORLDMAP_SIZE"] = "Symbolgröße auf der Weltkarte"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Größe der Vorkommen-Symbole auf der Weltkarte."
+L["REMEMBERED_ALPHA"] = "Deckkraft gemerkter Vorkommen"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Wie sichtbar gespeicherte Vorkommen sind, wenn der Scan sie gerade nicht sieht (vielleicht hat sie jemand gesammelt)."
+
+-- Datos
+L["DATA"] = "Daten"
+L["DATA_TITLE"] = "GatherRadar – Daten"
+L["HEADER_DATABASE"] = "Gespeicherte Vorkommen"
+L["HEADER_DEDUPE"] = "Duplikate"
+L["DEDUPE"] = "Gleiches Vorkommen innerhalb von"
+L["DEDUPE_TOOLTIP"] = "Zwei Vorkommen derselben Art, die näher beieinander liegen, sind derselbe Ort, und nur eines wird behalten."
+L["CLEANUP"] = "Duplikate entfernen"
+L["CLEANUP_TOOLTIP"] = "Geht alle gespeicherten Vorkommen durch und entfernt die, die zu nah an einem anderen derselben Art liegen."
+L["CLEANUP_DONE"] = "%d Duplikate entfernt."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "Wenn GatherMate2 und GatherMate2_Data installiert sind, kannst du deren Vorkommen (Wowhead-Daten) zu GatherRadar hinzufügen. Nur fehlende werden ergänzt: Deine Vorkommen bleiben unberührt, und importierte, die zu nah an deinen liegen, werden verworfen."
+L["IMPORT"] = "GatherMate2_Data importieren"
+L["IMPORT_TOOLTIP"] = "Lädt GatherMate2_Data und fügt die fehlenden Vorkommen hinzu, für die Arten, die du unter Allgemein aktiviert hast."
+L["IMPORT_DONE"] = "Neue Vorkommen importiert."
+L["IMPORT_FAILED"] = "GatherMate2_Data konnte nicht geladen werden (%s). GatherMate2 muss installiert und aktiviert sein."
+L["HEADER_CLEAR"] = "Löschen"
+L["CLEAR_ZONE"] = "Diese Zone löschen"
+L["CLEAR_ZONE_TOOLTIP"] = "Löscht alle gespeicherten Vorkommen der Zone, in der du bist."
+L["CLEAR_ALL"] = "Alles löschen"
+L["CLEAR_ALL_TOOLTIP"] = "Löscht alle gespeicherten Vorkommen aller Zonen. Gelernte Namen bleiben erhalten."
+L["CLEAR_ALL_CONFIRM"] = "Alle gespeicherten Vorkommen von GatherRadar löschen? Das kann nicht rückgängig gemacht werden."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "Gerade auf der Minikarte"
+L["REMEMBERED"] = "Gemerkt (vielleicht schon gesammelt)"
+L["PIN_DELETE"] = "Umschalt + Rechtsklick: löschen"
+L["ARROW_NONE"] = "Keine Vorkommen in der Nähe"
+L["ARROW_TOOLTIP"] = "Zeigt auf das nächste Vorkommen. Ziehen zum Verschieben, Rechtsklick zum Ausblenden."
+L["YARDS"] = "%d m"
+
+-- Sesion
+L["SESSION"] = "Sitzung"
+L["SESSION_TIME"] = "Zeit: %s"
+L["SESSION_NODES"] = "%d Vorkommen (%d/h)"
+L["SESSION_EMPTY"] = "Sammle etwas, um mit dem Zählen zu beginnen."
+L["PER_HOUR"] = "%d/h"
+L["RESET"] = "Zurücksetzen"

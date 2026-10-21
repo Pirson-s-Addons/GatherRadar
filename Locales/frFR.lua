@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- FRANÇAIS (frFR)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "frFR" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Version :"
+L["AUTHOR"] = "Auteur :"
+L["LINKS"] = "Liens"
+L["COMMANDS"] = "Commandes"
+L["SELECT"] = "Sélectionner"
+L["SELECT_TOOLTIP"] = "Sélectionne tout le lien pour que tu puisses le copier avec Ctrl+C. WoW ne permet pas aux addons d'écrire dans le presse-papiers, la dernière étape est donc pour toi."
+L["ABOUT_DESC"] = "Herbes, minerais, coffres et bancs de poissons sur ta minicarte avec l'icône de ce qu'ils donnent, et sur la carte du monde. Retient chaque point que tu récoltes ou vois, les partage avec ton groupe, t'indique le plus proche avec une flèche et suit ta session. Importe GatherMate2_Data sans doublons."
+L["CMD_OPEN"] = "Ouvre les options."
+L["CMD_SESSION"] = "Affiche ou masque le panneau de session."
+L["CMD_ARROW"] = "Affiche ou masque la flèche vers le point le plus proche."
+L["CMD_IMPORT"] = "Importe les points de GatherMate2_Data qui te manquent."
+
+-- General
+L["OPTIONS_TITLE"] = "Options de GatherRadar"
+L["GENERAL"] = "Général"
+L["DEFAULTS"] = "Valeurs par défaut"
+L["HEADER_SHOW"] = "Afficher"
+L["KIND_HERB"] = "Herbes"
+L["KIND_HERB_TOOLTIP"] = "Points d'Herboristerie. Active Découverte d'herbes pour les voir en direct."
+L["KIND_ORE"] = "Minerais"
+L["KIND_ORE_TOOLTIP"] = "Gisements de Minage. Active Découverte de gisements pour les voir en direct."
+L["KIND_TREASURE"] = "Trésors"
+L["KIND_TREASURE_TOOLTIP"] = "Coffres, cantines et autres trésors. Active Découverte de trésors pour les voir en direct."
+L["KIND_FISH"] = "Bancs de poissons"
+L["KIND_FISH_TOOLTIP"] = "Bancs de poissons et débris flottants. Active Découverte de poissons pour les voir en direct."
+L["SHOW_MINIMAP"] = "Sur la minicarte"
+L["SHOW_MINIMAP_TOOLTIP"] = "Les points enregistrés autour de toi sur la minicarte, avec l'icône de ce qu'ils donnent."
+L["SHOW_WORLDMAP"] = "Sur la carte du monde"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Tous les points enregistrés de la zone sur la carte du monde. Maj + clic droit sur un marqueur pour le supprimer."
+L["SHOW_ARROW"] = "Flèche vers le point le plus proche"
+L["SHOW_ARROW_TOOLTIP"] = "Une flèche à l'écran qui indique le point le plus proche, avec son nom et sa distance. Fais-la glisser pour la déplacer."
+L["SHOW_SESSION"] = "Panneau de session"
+L["SHOW_SESSION_TOOLTIP"] = "Points récoltés et composants obtenus depuis ta connexion, et par heure."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Scanner la minicarte"
+L["SCAN_TOOLTIP"] = "Lit les points que Découverte d'herbes, Découverte de gisements, Découverte de trésors ou Découverte de poissons affichent sur la minicarte et y place leur icône. Les points présents brillent ; les points mémorisés sont estompés."
+L["SAVE_SEEN"] = "Enregistrer les points vus sur la minicarte"
+L["SAVE_SEEN_TOOLTIP"] = "Enregistre aussi les points vus par le scan, pas seulement ceux que tu récoltes. Ta carte se remplit bien plus vite. Désactivé, les points vus ne sont gardés que jusqu'à ta déconnexion."
+L["SHARE"] = "Partager avec mon groupe"
+L["SHARE_TOOLTIP"] = "Envoie les points que tu trouves à ton groupe ou raid, et ajoute les leurs à ta carte. Ne fonctionne qu'avec les membres qui utilisent aussi GatherRadar."
+L["HARD"] = "Marquer ce que tu ne peux pas encore récolter"
+L["HARD_TOOLTIP"] = "Anneau rouge sur les herbes et minerais qui demandent plus de compétence que tu n'en as, et la flèche les ignore. Les autres couleurs indiquent ta chance de progresser : orange, jaune, vert, gris."
+L["HEADER_LOOK"] = "Apparence"
+L["MINIMAP_SIZE"] = "Taille des icônes sur la minicarte"
+L["MINIMAP_SIZE_TOOLTIP"] = "Taille des icônes des points sur la minicarte."
+L["WORLDMAP_SIZE"] = "Taille des icônes sur la carte du monde"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Taille des icônes des points sur la carte du monde."
+L["REMEMBERED_ALPHA"] = "Opacité des points mémorisés"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Visibilité des points enregistrés quand le scan ne les voit pas en ce moment (quelqu'un les a peut-être récoltés)."
+
+-- Datos
+L["DATA"] = "Données"
+L["DATA_TITLE"] = "Données de GatherRadar"
+L["HEADER_DATABASE"] = "Points enregistrés"
+L["HEADER_DEDUPE"] = "Doublons"
+L["DEDUPE"] = "Même point à moins de"
+L["DEDUPE_TOOLTIP"] = "Deux points du même type plus proches que cette distance sont le même endroit, et un seul est gardé."
+L["CLEANUP"] = "Supprimer les doublons"
+L["CLEANUP_TOOLTIP"] = "Parcourt tous les points enregistrés et supprime ceux trop proches d'un autre du même type."
+L["CLEANUP_DONE"] = "%d doublons supprimés."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "Si GatherMate2 et GatherMate2_Data sont installés, tu peux ajouter leurs points (données Wowhead) à GatherRadar. Seuls les manquants sont ajoutés : tes points ne sont pas touchés, et les points importés trop proches des tiens sont écartés."
+L["IMPORT"] = "Importer GatherMate2_Data"
+L["IMPORT_TOOLTIP"] = "Charge GatherMate2_Data et ajoute les points qui te manquent, pour les types activés dans Général."
+L["IMPORT_DONE"] = "Nouveaux points importés."
+L["IMPORT_FAILED"] = "Impossible de charger GatherMate2_Data (%s). GatherMate2 doit être installé et activé."
+L["HEADER_CLEAR"] = "Supprimer"
+L["CLEAR_ZONE"] = "Supprimer cette zone"
+L["CLEAR_ZONE_TOOLTIP"] = "Supprime tous les points enregistrés de la zone où tu te trouves."
+L["CLEAR_ALL"] = "Tout supprimer"
+L["CLEAR_ALL_TOOLTIP"] = "Supprime tous les points enregistrés de toutes les zones. Les noms appris sont conservés."
+L["CLEAR_ALL_CONFIRM"] = "Supprimer tous les points enregistrés de GatherRadar ? Cette action est irréversible."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "Sur la minicarte en ce moment"
+L["REMEMBERED"] = "Mémorisé (il a peut-être été récolté)"
+L["PIN_DELETE"] = "Maj + clic droit : supprimer"
+L["ARROW_NONE"] = "Aucun point à proximité"
+L["ARROW_TOOLTIP"] = "Indique le point le plus proche. Glisser pour déplacer, clic droit pour masquer."
+L["YARDS"] = "%d m"
+
+-- Sesion
+L["SESSION"] = "Session"
+L["SESSION_TIME"] = "Durée : %s"
+L["SESSION_NODES"] = "%d points (%d/h)"
+L["SESSION_EMPTY"] = "Récolte quelque chose pour commencer le décompte."
+L["PER_HOUR"] = "%d/h"
+L["RESET"] = "Réinitialiser"

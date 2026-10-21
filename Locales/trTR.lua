@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- TÜRKÇE (trTR)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "trTR" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Sürüm:"
+L["AUTHOR"] = "Yazar:"
+L["LINKS"] = "Bağlantılar"
+L["COMMANDS"] = "Komutlar"
+L["SELECT"] = "Seç"
+L["SELECT_TOOLTIP"] = "Ctrl+C ile kopyalayabilmen için bağlantının tamamını seçer. WoW eklentilerin panoya yazmasına izin vermez, bu yüzden son adım sana kalıyor."
+L["ABOUT_DESC"] = "Otlar, madenler, hazine sandıkları ve balık sürüleri, verdikleri şeyin simgesiyle mini haritanda ve dünya haritasında. Topladığın veya gördüğün her kaynağı hatırlar, grubunla paylaşır, en yakınını bir okla gösterir ve oturumunu takip eder. GatherMate2_Data'yı kopyasız içe aktarır."
+L["CMD_OPEN"] = "Ayarları açar."
+L["CMD_SESSION"] = "Oturum panelini gösterir veya gizler."
+L["CMD_ARROW"] = "En yakın kaynağa giden oku gösterir veya gizler."
+L["CMD_IMPORT"] = "GatherMate2_Data'dan eksik olan kaynakları içe aktarır."
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar Ayarları"
+L["GENERAL"] = "Genel"
+L["DEFAULTS"] = "Varsayılana sıfırla"
+L["HEADER_SHOW"] = "Göster"
+L["KIND_HERB"] = "Otlar"
+L["KIND_HERB_TOOLTIP"] = "Bitki toplama kaynakları. Canlı görmek için Ot Bul'u aç."
+L["KIND_ORE"] = "Madenler"
+L["KIND_ORE_TOOLTIP"] = "Madencilik kaynakları. Canlı görmek için Mineral Bul'u aç."
+L["KIND_TREASURE"] = "Hazineler"
+L["KIND_TREASURE_TOOLTIP"] = "Sandıklar, kasalar ve diğer hazineler. Canlı görmek için Hazine Bul'u aç."
+L["KIND_FISH"] = "Balık sürüleri"
+L["KIND_FISH_TOOLTIP"] = "Balık sürüleri ve yüzen enkazlar. Canlı görmek için Balık Bul'u aç."
+L["SHOW_MINIMAP"] = "Mini haritada"
+L["SHOW_MINIMAP_TOOLTIP"] = "Etrafındaki kayıtlı kaynaklar mini haritada, verdikleri şeyin simgesiyle."
+L["SHOW_WORLDMAP"] = "Dünya haritasında"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Bölgedeki tüm kayıtlı kaynaklar dünya haritasında. Bir işarete Shift + sağ tık onu siler."
+L["SHOW_ARROW"] = "En yakın kaynağa ok"
+L["SHOW_ARROW_TOOLTIP"] = "Ekranda en yakın kaynağı adı ve mesafesiyle gösteren bir ok. Taşımak için sürükle."
+L["SHOW_SESSION"] = "Oturum paneli"
+L["SHOW_SESSION_TOOLTIP"] = "Giriş yaptığından beri toplanan kaynaklar ve elde edilen malzemeler, ve saat başına."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Mini haritayı tara"
+L["SCAN_TOOLTIP"] = "Ot Bul, Mineral Bul, Hazine Bul veya Balık Bul'un mini haritada gösterdiği kaynakları okur ve üzerlerine simgelerini koyar. Şu an olanlar parlar; hatırlananlar soluk görünür."
+L["SAVE_SEEN"] = "Mini haritada görülen kaynakları kaydet"
+L["SAVE_SEEN_TOOLTIP"] = "Sadece topladıklarını değil, taramanın gördüğü kaynakları da kaydeder. Haritan çok daha hızlı dolar. Kapalıyken görülen kaynaklar yalnızca oyundan çıkana kadar tutulur."
+L["SHARE"] = "Grubumla paylaş"
+L["SHARE_TOOLTIP"] = "Bulduğun kaynakları grubuna veya baskın grubuna gönderir ve onlarınkini haritana ekler. Yalnızca GatherRadar kullanan grup üyeleriyle çalışır."
+L["HARD"] = "Henüz toplayamadıklarını işaretle"
+L["HARD_TOOLTIP"] = "Sahip olduğundan fazla beceri gerektiren otlarda ve madenlerde kırmızı halka; ok bunları atlar. Diğer renkler beceri artışı şansını gösterir: turuncu, sarı, yeşil, gri."
+L["HEADER_LOOK"] = "Görünüm"
+L["MINIMAP_SIZE"] = "Mini harita simge boyutu"
+L["MINIMAP_SIZE_TOOLTIP"] = "Mini haritadaki kaynak simgelerinin boyutu."
+L["WORLDMAP_SIZE"] = "Dünya haritası simge boyutu"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Dünya haritasındaki kaynak simgelerinin boyutu."
+L["REMEMBERED_ALPHA"] = "Hatırlanan kaynakların opaklığı"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Taramanın şu an görmediği kayıtlı kaynakların ne kadar görünür olduğu (belki biri toplamıştır)."
+
+-- Datos
+L["DATA"] = "Veriler"
+L["DATA_TITLE"] = "GatherRadar Verileri"
+L["HEADER_DATABASE"] = "Kayıtlı kaynaklar"
+L["HEADER_DEDUPE"] = "Kopyalar"
+L["DEDUPE"] = "Aynı kaynak sayılma mesafesi"
+L["DEDUPE_TOOLTIP"] = "Aynı türden iki kaynak bundan daha yakınsa aynı yerdir ve yalnızca biri tutulur."
+L["CLEANUP"] = "Kopyaları kaldır"
+L["CLEANUP_TOOLTIP"] = "Tüm kayıtlı kaynakları gözden geçirir ve aynı türden başka birine çok yakın olanları kaldırır."
+L["CLEANUP_DONE"] = "%d kopya kaldırıldı."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "GatherMate2 ve GatherMate2_Data kuruluysa, onların kaynaklarını (Wowhead verileri) GatherRadar'a ekleyebilirsin. Yalnızca eksik olanlar eklenir: senin kaynaklarına dokunulmaz ve seninkilere çok yakın içe aktarılanlar atılır."
+L["IMPORT"] = "GatherMate2_Data'yı içe aktar"
+L["IMPORT_TOOLTIP"] = "GatherMate2_Data'yı yükler ve Genel'de açtığın türler için eksik kaynakları ekler."
+L["IMPORT_DONE"] = "Yeni kaynaklar içe aktarıldı."
+L["IMPORT_FAILED"] = "GatherMate2_Data yüklenemedi (%s). GatherMate2'nin kurulu ve etkin olması gerekir."
+L["HEADER_CLEAR"] = "Sil"
+L["CLEAR_ZONE"] = "Bu bölgeyi sil"
+L["CLEAR_ZONE_TOOLTIP"] = "Bulunduğun bölgedeki tüm kayıtlı kaynakları siler."
+L["CLEAR_ALL"] = "Hepsini sil"
+L["CLEAR_ALL_TOOLTIP"] = "Tüm bölgelerdeki tüm kayıtlı kaynakları siler. Öğrenilen adlar korunur."
+L["CLEAR_ALL_CONFIRM"] = "GatherRadar'daki tüm kayıtlı kaynaklar silinsin mi? Bu geri alınamaz."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "Şu an mini haritada"
+L["REMEMBERED"] = "Hatırlanan (toplanmış olabilir)"
+L["PIN_DELETE"] = "Shift + sağ tık: sil"
+L["ARROW_NONE"] = "Yakında kaynak yok"
+L["ARROW_TOOLTIP"] = "En yakın kaynağı gösterir. Taşımak için sürükle, gizlemek için sağ tıkla."
+L["YARDS"] = "%d yarda"
+
+-- Sesion
+L["SESSION"] = "Oturum"
+L["SESSION_TIME"] = "Süre: %s"
+L["SESSION_NODES"] = "%d kaynak (%d/sa)"
+L["SESSION_EMPTY"] = "Saymaya başlamak için bir şey topla."
+L["PER_HOUR"] = "%d/sa"
+L["RESET"] = "Sıfırla"

@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- NORSK (noNO)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "noNO" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "Versjon:"
+L["AUTHOR"] = "Forfatter:"
+L["LINKS"] = "Lenker"
+L["COMMANDS"] = "Kommandoer"
+L["SELECT"] = "Merk"
+L["SELECT_TOOLTIP"] = "Merker hele lenken så du kan kopiere den med Ctrl+C. WoW lar ikke tillegg skrive til utklippstavlen, så det siste steget er ditt."
+L["ABOUT_DESC"] = "Urter, malm, skattekister og fiskestimer på minikartet med ikonet for det de gir, og på verdenskartet. Husker hvert funnsted du samler eller ser, deler dem med gruppen din, peker med en pil mot det nærmeste og følger økten din. Importerer GatherMate2_Data uten duplikater."
+L["CMD_OPEN"] = "Åpner innstillingene."
+L["CMD_SESSION"] = "Viser eller skjuler øktpanelet."
+L["CMD_ARROW"] = "Viser eller skjuler pilen til nærmeste funnsted."
+L["CMD_IMPORT"] = "Importerer funnstedene fra GatherMate2_Data som du mangler."
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar – innstillinger"
+L["GENERAL"] = "Generelt"
+L["DEFAULTS"] = "Tilbakestill til standard"
+L["HEADER_SHOW"] = "Vis"
+L["KIND_HERB"] = "Urter"
+L["KIND_HERB_TOOLTIP"] = "Funnsteder for urtesanking. Slå på Finn urter for å se dem direkte."
+L["KIND_ORE"] = "Malm"
+L["KIND_ORE_TOOLTIP"] = "Funnsteder for gruvedrift. Slå på Finn mineraler for å se dem direkte."
+L["KIND_TREASURE"] = "Skatter"
+L["KIND_TREASURE_TOOLTIP"] = "Kister, skrin og andre skatter. Slå på Finn skatter for å se dem direkte."
+L["KIND_FISH"] = "Fiskestimer"
+L["KIND_FISH_TOOLTIP"] = "Fiskestimer og flytende vrakgods. Slå på Finn fisk for å se dem direkte."
+L["SHOW_MINIMAP"] = "På minikartet"
+L["SHOW_MINIMAP_TOOLTIP"] = "Lagrede funnsteder rundt deg på minikartet, med ikonet for det de gir."
+L["SHOW_WORLDMAP"] = "På verdenskartet"
+L["SHOW_WORLDMAP_TOOLTIP"] = "Alle lagrede funnsteder i sonen på verdenskartet. Shift + høyreklikk på en markør sletter den."
+L["SHOW_ARROW"] = "Pil til nærmeste funnsted"
+L["SHOW_ARROW_TOOLTIP"] = "En pil på skjermen som peker mot nærmeste funnsted, med navn og avstand. Dra for å flytte den."
+L["SHOW_SESSION"] = "Øktpanel"
+L["SHOW_SESSION_TOOLTIP"] = "Innsamlede funnsteder og materialer siden du logget inn, og per time."
+L["HEADER_RADAR"] = "Radar"
+L["SCAN"] = "Skann minikartet"
+L["SCAN_TOOLTIP"] = "Leser funnstedene som Finn urter, Finn mineraler, Finn skatter eller Finn fisk viser på minikartet og setter ikonet deres på dem. Aktuelle lyser; husket er dempet."
+L["SAVE_SEEN"] = "Lagre funnsteder sett på minikartet"
+L["SAVE_SEEN_TOOLTIP"] = "Lagrer også funnstedene skanningen ser, ikke bare de du samler. Kartet fylles mye raskere. Når av, huskes sette funnsteder bare til du logger ut."
+L["SHARE"] = "Del med gruppen min"
+L["SHARE_TOOLTIP"] = "Sender funnstedene du finner til gruppen eller raidet ditt, og legger deres til på kartet ditt. Fungerer bare med medlemmer som også bruker GatherRadar."
+L["HARD"] = "Merk det du ikke kan samle ennå"
+L["HARD_TOOLTIP"] = "Rød ring på urter og malm som krever mer ferdighet enn du har, og pilen hopper over dem. De andre fargene er sjansen din for å øke ferdigheten: oransje, gul, grønn, grå."
+L["HEADER_LOOK"] = "Utseende"
+L["MINIMAP_SIZE"] = "Ikonstørrelse på minikartet"
+L["MINIMAP_SIZE_TOOLTIP"] = "Størrelse på funnstedenes ikoner på minikartet."
+L["WORLDMAP_SIZE"] = "Ikonstørrelse på verdenskartet"
+L["WORLDMAP_SIZE_TOOLTIP"] = "Størrelse på funnstedenes ikoner på verdenskartet."
+L["REMEMBERED_ALPHA"] = "Synlighet for husket funnsteder"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "Hvor synlige lagrede funnsteder er når skanningen ikke ser dem akkurat nå (kanskje noen har samlet dem)."
+
+-- Datos
+L["DATA"] = "Data"
+L["DATA_TITLE"] = "GatherRadar – data"
+L["HEADER_DATABASE"] = "Lagrede funnsteder"
+L["HEADER_DEDUPE"] = "Duplikater"
+L["DEDUPE"] = "Samme funnsted innenfor"
+L["DEDUPE_TOOLTIP"] = "To funnsteder av samme type nærmere enn dette er samme sted, og bare ett beholdes."
+L["CLEANUP"] = "Fjern duplikater"
+L["CLEANUP_TOOLTIP"] = "Går gjennom alle lagrede funnsteder og fjerner de som ligger for nær et annet av samme type."
+L["CLEANUP_DONE"] = "%d duplikater fjernet."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "Hvis du har GatherMate2 og GatherMate2_Data installert, kan du legge til funnstedene deres (Wowhead-data) i GatherRadar. Bare de som mangler legges til: dine funnsteder røres ikke, og importerte som ligger for nær dine forkastes."
+L["IMPORT"] = "Importer GatherMate2_Data"
+L["IMPORT_TOOLTIP"] = "Laster inn GatherMate2_Data og legger til funnstedene du mangler, for typene du har slått på under Generelt."
+L["IMPORT_DONE"] = "Nye funnsteder importert."
+L["IMPORT_FAILED"] = "Kunne ikke laste inn GatherMate2_Data (%s). GatherMate2 må være installert og aktivert."
+L["HEADER_CLEAR"] = "Slett"
+L["CLEAR_ZONE"] = "Slett denne sonen"
+L["CLEAR_ZONE_TOOLTIP"] = "Sletter alle lagrede funnsteder i sonen du er i."
+L["CLEAR_ALL"] = "Slett alt"
+L["CLEAR_ALL_TOOLTIP"] = "Sletter alle lagrede funnsteder i alle soner. Lærte navn beholdes."
+L["CLEAR_ALL_CONFIRM"] = "Slette alle lagrede funnsteder i GatherRadar? Dette kan ikke angres."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "På minikartet akkurat nå"
+L["REMEMBERED"] = "Husket (kan allerede være samlet)"
+L["PIN_DELETE"] = "Shift + høyreklikk: slett"
+L["ARROW_NONE"] = "Ingen funnsteder i nærheten"
+L["ARROW_TOOLTIP"] = "Peker mot nærmeste funnsted. Dra for å flytte, høyreklikk for å skjule."
+L["YARDS"] = "%d yd"
+
+-- Sesion
+L["SESSION"] = "Økt"
+L["SESSION_TIME"] = "Tid: %s"
+L["SESSION_NODES"] = "%d funnsteder (%d/t)"
+L["SESSION_EMPTY"] = "Samle noe for å begynne å telle."
+L["PER_HOUR"] = "%d/t"
+L["RESET"] = "Nullstill"

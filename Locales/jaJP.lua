@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- 日本語 (jaJP)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "jaJP" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "バージョン："
+L["AUTHOR"] = "作者："
+L["LINKS"] = "リンク"
+L["COMMANDS"] = "コマンド"
+L["SELECT"] = "選択"
+L["SELECT_TOOLTIP"] = "Ctrl+C でコピーできるようにリンク全体を選択します。WoW はアドオンがクリップボードに書き込むことを許可していないため、最後の操作はあなたが行ってください。"
+L["ABOUT_DESC"] = "薬草、鉱石、宝箱、魚群を、得られるアイテムのアイコン付きでミニマップとワールドマップに表示します。採取したり見かけたりしたすべての採取ポイントを記憶し、グループと共有し、最寄りのポイントを矢印で示し、セッションを記録します。GatherMate2_Data を重複なしでインポートします。"
+L["CMD_OPEN"] = "設定を開きます。"
+L["CMD_SESSION"] = "セッションパネルの表示を切り替えます。"
+L["CMD_ARROW"] = "最寄りのポイントへの矢印の表示を切り替えます。"
+L["CMD_IMPORT"] = "GatherMate2_Data から不足しているポイントをインポートします。"
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar 設定"
+L["GENERAL"] = "一般"
+L["DEFAULTS"] = "初期設定に戻す"
+L["HEADER_SHOW"] = "表示"
+L["KIND_HERB"] = "薬草"
+L["KIND_HERB_TOOLTIP"] = "薬草採取のポイント。リアルタイムで見るには「薬草探し」をオンにしてください。"
+L["KIND_ORE"] = "鉱石"
+L["KIND_ORE_TOOLTIP"] = "採掘のポイント。リアルタイムで見るには「鉱物探し」をオンにしてください。"
+L["KIND_TREASURE"] = "宝"
+L["KIND_TREASURE_TOOLTIP"] = "宝箱、小箱などの宝。リアルタイムで見るには「宝探し」をオンにしてください。"
+L["KIND_FISH"] = "魚群"
+L["KIND_FISH_TOOLTIP"] = "魚群と漂流物。リアルタイムで見るには「魚探し」をオンにしてください。"
+L["SHOW_MINIMAP"] = "ミニマップに表示"
+L["SHOW_MINIMAP_TOOLTIP"] = "周囲の保存済みポイントを、得られるアイテムのアイコン付きでミニマップに表示します。"
+L["SHOW_WORLDMAP"] = "ワールドマップに表示"
+L["SHOW_WORLDMAP_TOOLTIP"] = "ゾーン内の保存済みポイントをすべてワールドマップに表示します。ピンを Shift + 右クリックで削除します。"
+L["SHOW_ARROW"] = "最寄りのポイントへの矢印"
+L["SHOW_ARROW_TOOLTIP"] = "最寄りのポイントを名前と距離付きで指し示す画面上の矢印です。ドラッグで移動できます。"
+L["SHOW_SESSION"] = "セッションパネル"
+L["SHOW_SESSION_TOOLTIP"] = "ログイン以降に採取したポイント数と入手した素材、および1時間あたりの数。"
+L["HEADER_RADAR"] = "レーダー"
+L["SCAN"] = "ミニマップをスキャン"
+L["SCAN_TOOLTIP"] = "「薬草探し」「鉱物探し」「宝探し」「魚探し」がミニマップに表示するポイントを読み取り、アイコンを付けます。今あるものは明るく、記憶したものは薄く表示されます。"
+L["SAVE_SEEN"] = "ミニマップで見たポイントを保存"
+L["SAVE_SEEN_TOOLTIP"] = "採取したものだけでなく、スキャンで見つけたポイントも保存します。マップがずっと早く埋まります。オフの場合、見たポイントはログアウトまでしか保持されません。"
+L["SHARE"] = "グループと共有"
+L["SHARE_TOOLTIP"] = "見つけたポイントをパーティーやレイドに送り、相手のポイントを自分のマップに追加します。GatherRadar を使っているメンバーとのみ機能します。"
+L["HARD"] = "まだ採取できないものをマーク"
+L["HARD_TOOLTIP"] = "スキルが足りない薬草や鉱石に赤い輪を付け、矢印はそれを飛ばします。他の色はスキルが上がる確率です：オレンジ、黄、緑、灰。"
+L["HEADER_LOOK"] = "外観"
+L["MINIMAP_SIZE"] = "ミニマップのアイコンサイズ"
+L["MINIMAP_SIZE_TOOLTIP"] = "ミニマップ上のポイントアイコンの大きさ。"
+L["WORLDMAP_SIZE"] = "ワールドマップのアイコンサイズ"
+L["WORLDMAP_SIZE_TOOLTIP"] = "ワールドマップ上のポイントアイコンの大きさ。"
+L["REMEMBERED_ALPHA"] = "記憶したポイントの不透明度"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "スキャンで今見えていない保存済みポイントの見え方（誰かが採取したかもしれません）。"
+
+-- Datos
+L["DATA"] = "データ"
+L["DATA_TITLE"] = "GatherRadar データ"
+L["HEADER_DATABASE"] = "保存済みポイント"
+L["HEADER_DEDUPE"] = "重複"
+L["DEDUPE"] = "同じポイントとみなす距離"
+L["DEDUPE_TOOLTIP"] = "同じ種類の2つのポイントがこれより近い場合は同じ場所とみなし、1つだけ残します。"
+L["CLEANUP"] = "重複を削除"
+L["CLEANUP_TOOLTIP"] = "保存済みのポイントをすべて調べ、同じ種類の別のポイントに近すぎるものを削除します。"
+L["CLEANUP_DONE"] = "%d 件の重複を削除しました。"
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "GatherMate2 と GatherMate2_Data がインストールされていれば、そのポイント（Wowhead のデータ）を GatherRadar に追加できます。不足しているものだけが追加されます：あなたのポイントは変更されず、あなたのポイントに近すぎるインポート分は破棄されます。"
+L["IMPORT"] = "GatherMate2_Data をインポート"
+L["IMPORT_TOOLTIP"] = "GatherMate2_Data を読み込み、「一般」でオンにした種類の不足しているポイントを追加します。"
+L["IMPORT_DONE"] = "新しいポイントをインポートしました。"
+L["IMPORT_FAILED"] = "GatherMate2_Data を読み込めませんでした（%s）。GatherMate2 がインストールされ有効になっている必要があります。"
+L["HEADER_CLEAR"] = "削除"
+L["CLEAR_ZONE"] = "このゾーンを削除"
+L["CLEAR_ZONE_TOOLTIP"] = "現在いるゾーンの保存済みポイントをすべて削除します。"
+L["CLEAR_ALL"] = "すべて削除"
+L["CLEAR_ALL_TOOLTIP"] = "すべてのゾーンの保存済みポイントを削除します。覚えた名前は保持されます。"
+L["CLEAR_ALL_CONFIRM"] = "GatherRadar の保存済みポイントをすべて削除しますか？元に戻せません。"
+
+-- Pines y flecha
+L["SEEN_NOW"] = "現在ミニマップに表示中"
+L["REMEMBERED"] = "記憶済み（すでに採取された可能性あり）"
+L["PIN_DELETE"] = "Shift + 右クリック：削除"
+L["ARROW_NONE"] = "近くにポイントなし"
+L["ARROW_TOOLTIP"] = "最寄りのポイントを指します。ドラッグで移動、右クリックで非表示。"
+L["YARDS"] = "%dヤード"
+
+-- Sesion
+L["SESSION"] = "セッション"
+L["SESSION_TIME"] = "時間：%s"
+L["SESSION_NODES"] = "%d ポイント（%d/時）"
+L["SESSION_EMPTY"] = "何かを採取するとカウントが始まります。"
+L["PER_HOUR"] = "%d/時"
+L["RESET"] = "リセット"

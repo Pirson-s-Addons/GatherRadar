@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- 한국어 (koKR)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "koKR" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "버전:"
+L["AUTHOR"] = "제작자:"
+L["LINKS"] = "링크"
+L["COMMANDS"] = "명령어"
+L["SELECT"] = "선택"
+L["SELECT_TOOLTIP"] = "Ctrl+C로 복사할 수 있도록 링크 전체를 선택합니다. WoW는 애드온이 클립보드에 쓰는 것을 허용하지 않으므로 마지막 단계는 직접 해야 합니다."
+L["ABOUT_DESC"] = "약초, 광석, 보물 상자, 물고기 떼를 얻을 수 있는 아이템 아이콘과 함께 미니맵과 세계 지도에 표시합니다. 채집하거나 본 모든 채집물을 기억하고, 파티와 공유하며, 가장 가까운 곳을 화살표로 안내하고 세션을 기록합니다. GatherMate2_Data를 중복 없이 가져옵니다."
+L["CMD_OPEN"] = "설정을 엽니다."
+L["CMD_SESSION"] = "세션 창을 표시하거나 숨깁니다."
+L["CMD_ARROW"] = "가장 가까운 채집물로 향하는 화살표를 표시하거나 숨깁니다."
+L["CMD_IMPORT"] = "GatherMate2_Data에서 없는 채집물을 가져옵니다."
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar 설정"
+L["GENERAL"] = "일반"
+L["DEFAULTS"] = "기본값"
+L["HEADER_SHOW"] = "표시"
+L["KIND_HERB"] = "약초"
+L["KIND_HERB_TOOLTIP"] = "약초채집 채집물입니다. 실시간으로 보려면 약초 찾기를 켜세요."
+L["KIND_ORE"] = "광석"
+L["KIND_ORE_TOOLTIP"] = "채광 채집물입니다. 실시간으로 보려면 광물 찾기를 켜세요."
+L["KIND_TREASURE"] = "보물"
+L["KIND_TREASURE_TOOLTIP"] = "상자, 사물함 및 기타 보물입니다. 실시간으로 보려면 보물 찾기를 켜세요."
+L["KIND_FISH"] = "물고기 떼"
+L["KIND_FISH_TOOLTIP"] = "물고기 떼와 떠다니는 잔해입니다. 실시간으로 보려면 물고기 찾기를 켜세요."
+L["SHOW_MINIMAP"] = "미니맵에 표시"
+L["SHOW_MINIMAP_TOOLTIP"] = "주변에 저장된 채집물을 얻을 수 있는 아이템 아이콘과 함께 미니맵에 표시합니다."
+L["SHOW_WORLDMAP"] = "세계 지도에 표시"
+L["SHOW_WORLDMAP_TOOLTIP"] = "지역의 모든 저장된 채집물을 세계 지도에 표시합니다. Shift + 오른쪽 클릭으로 아이콘을 삭제합니다."
+L["SHOW_ARROW"] = "가장 가까운 채집물 화살표"
+L["SHOW_ARROW_TOOLTIP"] = "가장 가까운 채집물을 가리키는 화면 화살표로, 이름과 거리를 표시합니다. 끌어서 이동합니다."
+L["SHOW_SESSION"] = "세션 창"
+L["SHOW_SESSION_TOOLTIP"] = "접속 후 채집한 횟수와 얻은 재료, 그리고 시간당 수치입니다."
+L["HEADER_RADAR"] = "레이더"
+L["SCAN"] = "미니맵 스캔"
+L["SCAN_TOOLTIP"] = "약초 찾기, 광물 찾기, 보물 찾기 또는 물고기 찾기가 미니맵에 표시하는 채집물을 읽어 아이콘을 붙입니다. 현재 있는 것은 밝게, 기억된 것은 흐리게 표시됩니다."
+L["SAVE_SEEN"] = "미니맵에서 본 채집물 저장"
+L["SAVE_SEEN_TOOLTIP"] = "채집한 것뿐 아니라 스캔으로 본 채집물도 저장합니다. 지도가 훨씬 빨리 채워집니다. 끄면 본 채집물은 접속을 종료할 때까지만 유지됩니다."
+L["SHARE"] = "파티와 공유"
+L["SHARE_TOOLTIP"] = "찾은 채집물을 파티나 공격대에 보내고, 그들의 채집물을 내 지도에 추가합니다. GatherRadar를 사용하는 구성원과만 작동합니다."
+L["HARD"] = "아직 채집할 수 없는 것 표시"
+L["HARD_TOOLTIP"] = "숙련도가 부족한 약초와 광석에 빨간 테두리를 표시하고 화살표는 이를 건너뜁니다. 다른 색은 숙련도 상승 확률입니다: 주황, 노랑, 초록, 회색."
+L["HEADER_LOOK"] = "모양"
+L["MINIMAP_SIZE"] = "미니맵 아이콘 크기"
+L["MINIMAP_SIZE_TOOLTIP"] = "미니맵의 채집물 아이콘 크기입니다."
+L["WORLDMAP_SIZE"] = "세계 지도 아이콘 크기"
+L["WORLDMAP_SIZE_TOOLTIP"] = "세계 지도의 채집물 아이콘 크기입니다."
+L["REMEMBERED_ALPHA"] = "기억된 채집물 불투명도"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "스캔에 현재 보이지 않는 저장된 채집물의 표시 정도입니다 (누군가 이미 채집했을 수 있습니다)."
+
+-- Datos
+L["DATA"] = "데이터"
+L["DATA_TITLE"] = "GatherRadar 데이터"
+L["HEADER_DATABASE"] = "저장된 채집물"
+L["HEADER_DEDUPE"] = "중복"
+L["DEDUPE"] = "같은 채집물로 볼 거리"
+L["DEDUPE_TOOLTIP"] = "이 거리보다 가까운 같은 종류의 두 채집물은 같은 장소로 보고 하나만 남깁니다."
+L["CLEANUP"] = "중복 제거"
+L["CLEANUP_TOOLTIP"] = "저장된 모든 채집물을 확인하여 같은 종류의 다른 채집물과 너무 가까운 것을 제거합니다."
+L["CLEANUP_DONE"] = "중복 %d개를 제거했습니다."
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "GatherMate2와 GatherMate2_Data가 설치되어 있다면 그 채집물(Wowhead 데이터)을 GatherRadar에 추가할 수 있습니다. 없는 것만 추가됩니다: 내 채집물은 그대로 두고, 내 것과 너무 가까운 가져온 채집물은 버립니다."
+L["IMPORT"] = "GatherMate2_Data 가져오기"
+L["IMPORT_TOOLTIP"] = "GatherMate2_Data를 불러와 일반에서 켠 종류의 없는 채집물을 추가합니다."
+L["IMPORT_DONE"] = "새 채집물을 가져왔습니다."
+L["IMPORT_FAILED"] = "GatherMate2_Data를 불러올 수 없습니다 (%s). GatherMate2가 설치되어 있고 켜져 있어야 합니다."
+L["HEADER_CLEAR"] = "삭제"
+L["CLEAR_ZONE"] = "이 지역 삭제"
+L["CLEAR_ZONE_TOOLTIP"] = "현재 있는 지역의 저장된 채집물을 모두 삭제합니다."
+L["CLEAR_ALL"] = "모두 삭제"
+L["CLEAR_ALL_TOOLTIP"] = "모든 지역의 저장된 채집물을 삭제합니다. 익힌 이름은 유지됩니다."
+L["CLEAR_ALL_CONFIRM"] = "GatherRadar에 저장된 채집물을 모두 삭제할까요? 되돌릴 수 없습니다."
+
+-- Pines y flecha
+L["SEEN_NOW"] = "현재 미니맵에 있음"
+L["REMEMBERED"] = "기억됨 (이미 채집되었을 수 있음)"
+L["PIN_DELETE"] = "Shift + 오른쪽 클릭: 삭제"
+L["ARROW_NONE"] = "주변에 채집물 없음"
+L["ARROW_TOOLTIP"] = "가장 가까운 채집물을 가리킵니다. 끌어서 이동, 오른쪽 클릭으로 숨기기."
+L["YARDS"] = "%d미터"
+
+-- Sesion
+L["SESSION"] = "세션"
+L["SESSION_TIME"] = "시간: %s"
+L["SESSION_NODES"] = "채집 %d회 (%d/시간)"
+L["SESSION_EMPTY"] = "무언가를 채집하면 집계가 시작됩니다."
+L["PER_HOUR"] = "%d/시간"
+L["RESET"] = "초기화"

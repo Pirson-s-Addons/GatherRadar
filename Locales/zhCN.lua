@@ -1,0 +1,98 @@
+local ADDON_NAME, ns = ...
+
+-- ==========================================
+-- 简体中文 (zhCN)
+-- ==========================================
+local locale = GetLocale()
+if locale ~= "zhCN" then return end
+local L = ns.L
+
+-- Acerca de
+L["VERSION"] = "版本："
+L["AUTHOR"] = "作者："
+L["LINKS"] = "链接"
+L["COMMANDS"] = "命令"
+L["SELECT"] = "选择"
+L["SELECT_TOOLTIP"] = "选中整个链接，以便你用 Ctrl+C 复制。WoW 不允许插件写入剪贴板，所以最后一步需要你自己完成。"
+L["ABOUT_DESC"] = "在小地图上用产出物品的图标显示草药、矿脉、宝箱和鱼群，并显示在世界地图上。记住你采集过或见过的每个采集点，与队伍共享，用箭头指向最近的一个，并统计本次游戏。可无重复地导入 GatherMate2_Data。"
+L["CMD_OPEN"] = "打开选项。"
+L["CMD_SESSION"] = "显示或隐藏统计面板。"
+L["CMD_ARROW"] = "显示或隐藏指向最近采集点的箭头。"
+L["CMD_IMPORT"] = "导入 GatherMate2_Data 中你缺少的采集点。"
+
+-- General
+L["OPTIONS_TITLE"] = "GatherRadar 选项"
+L["GENERAL"] = "常规"
+L["DEFAULTS"] = "默认值"
+L["HEADER_SHOW"] = "显示"
+L["KIND_HERB"] = "草药"
+L["KIND_HERB_TOOLTIP"] = "草药学采集点。开启“寻找草药”即可实时看到。"
+L["KIND_ORE"] = "矿石"
+L["KIND_ORE_TOOLTIP"] = "采矿采集点。开启“寻找矿物”即可实时看到。"
+L["KIND_TREASURE"] = "财宝"
+L["KIND_TREASURE_TOOLTIP"] = "宝箱、提箱和其他财宝。开启“寻找财宝”即可实时看到。"
+L["KIND_FISH"] = "鱼群"
+L["KIND_FISH_TOOLTIP"] = "鱼群和漂浮的残骸。开启“寻找鱼类”即可实时看到。"
+L["SHOW_MINIMAP"] = "在小地图上"
+L["SHOW_MINIMAP_TOOLTIP"] = "在小地图上显示你周围已保存的采集点，并带有产出物品的图标。"
+L["SHOW_WORLDMAP"] = "在世界地图上"
+L["SHOW_WORLDMAP_TOOLTIP"] = "在世界地图上显示该区域所有已保存的采集点。Shift + 右键点击标记可将其删除。"
+L["SHOW_ARROW"] = "指向最近采集点的箭头"
+L["SHOW_ARROW_TOOLTIP"] = "屏幕上的箭头，指向最近的采集点，并显示其名称和距离。拖动可移动。"
+L["SHOW_SESSION"] = "统计面板"
+L["SHOW_SESSION_TOOLTIP"] = "自登录以来采集的次数和获得的材料，以及每小时的数量。"
+L["HEADER_RADAR"] = "雷达"
+L["SCAN"] = "扫描小地图"
+L["SCAN_TOOLTIP"] = "读取“寻找草药”、“寻找矿物”、“寻找财宝”或“寻找鱼类”在小地图上显示的采集点，并为其加上图标。当前存在的会发亮，记忆中的则变暗。"
+L["SAVE_SEEN"] = "保存小地图上看到的采集点"
+L["SAVE_SEEN_TOOLTIP"] = "除了你采集的，也保存扫描看到的采集点。地图会填充得快很多。关闭时，看到的采集点只保留到你下线为止。"
+L["SHARE"] = "与我的队伍共享"
+L["SHARE_TOOLTIP"] = "将你发现的采集点发送给小队或团队，并把他们的添加到你的地图上。仅对同样使用 GatherRadar 的成员有效。"
+L["HARD"] = "标记还无法采集的"
+L["HARD_TOOLTIP"] = "技能不足的草药和矿石会显示红圈，箭头也会跳过它们。其他颜色表示提升技能的几率：橙、黄、绿、灰。"
+L["HEADER_LOOK"] = "外观"
+L["MINIMAP_SIZE"] = "小地图图标大小"
+L["MINIMAP_SIZE_TOOLTIP"] = "小地图上采集点图标的大小。"
+L["WORLDMAP_SIZE"] = "世界地图图标大小"
+L["WORLDMAP_SIZE_TOOLTIP"] = "世界地图上采集点图标的大小。"
+L["REMEMBERED_ALPHA"] = "记忆采集点的不透明度"
+L["REMEMBERED_ALPHA_TOOLTIP"] = "扫描当前看不到的已保存采集点的可见程度（可能已被别人采走）。"
+
+-- Datos
+L["DATA"] = "数据"
+L["DATA_TITLE"] = "GatherRadar 数据"
+L["HEADER_DATABASE"] = "已保存的采集点"
+L["HEADER_DEDUPE"] = "重复项"
+L["DEDUPE"] = "视为同一采集点的距离"
+L["DEDUPE_TOOLTIP"] = "同类型的两个采集点距离小于此值时视为同一位置，只保留一个。"
+L["CLEANUP"] = "移除重复项"
+L["CLEANUP_TOOLTIP"] = "检查所有已保存的采集点，移除与同类型其他采集点距离过近的。"
+L["CLEANUP_DONE"] = "已移除 %d 个重复项。"
+L["HEADER_IMPORT"] = "GatherMate2_Data"
+L["IMPORT_DESC"] = "如果你安装了 GatherMate2 和 GatherMate2_Data，可以将其采集点（Wowhead 数据）添加到 GatherRadar。只会添加缺少的：你的采集点不会被改动，离你的采集点过近的导入数据会被丢弃。"
+L["IMPORT"] = "导入 GatherMate2_Data"
+L["IMPORT_TOOLTIP"] = "加载 GatherMate2_Data 并添加你缺少的采集点，仅限在“常规”中开启的类型。"
+L["IMPORT_DONE"] = "已导入新的采集点。"
+L["IMPORT_FAILED"] = "无法加载 GatherMate2_Data（%s）。需要安装并启用 GatherMate2。"
+L["HEADER_CLEAR"] = "删除"
+L["CLEAR_ZONE"] = "删除此区域"
+L["CLEAR_ZONE_TOOLTIP"] = "删除你所在区域的所有已保存采集点。"
+L["CLEAR_ALL"] = "全部删除"
+L["CLEAR_ALL_TOOLTIP"] = "删除所有区域的所有已保存采集点。已学到的名称会保留。"
+L["CLEAR_ALL_CONFIRM"] = "删除 GatherRadar 所有已保存的采集点？此操作无法撤销。"
+
+-- Pines y flecha
+L["SEEN_NOW"] = "当前在小地图上"
+L["REMEMBERED"] = "记忆中（可能已被采集）"
+L["PIN_DELETE"] = "Shift + 右键点击：删除"
+L["ARROW_NONE"] = "附近没有采集点"
+L["ARROW_TOOLTIP"] = "指向最近的采集点。拖动可移动，右键点击可隐藏。"
+L["YARDS"] = "%d码"
+
+-- Sesion
+L["SESSION"] = "统计"
+L["SESSION_TIME"] = "时间：%s"
+L["SESSION_NODES"] = "%d 个采集点（%d/小时）"
+L["SESSION_EMPTY"] = "采集一些东西即可开始统计。"
+L["PER_HOUR"] = "%d/小时"
+L["RESET"] = "重置"
