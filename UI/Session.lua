@@ -33,6 +33,7 @@ local function Reset()
     session = { start = GetTime(), nodes = {}, items = {}, order = {} }
     elapsedSum = 1
 end
+ns.ResetSession = Reset
 
 local function PerHour(count, hours)
     return hours > 0.01 and math.floor(count / hours + 0.5) or 0

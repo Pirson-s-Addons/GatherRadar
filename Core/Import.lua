@@ -4,10 +4,12 @@ local L = ns.L
 -- ==========================================
 -- IMPORTAR NODOS DE WOWHEAD
 -- ==========================================
--- Solo si el jugador lo pide (boton en Opciones o /gr import). Los nodos de
--- WoW Forever de GatherMate2_Data (Wowhead) van incluidos en Data/Import*.lua
--- (ns.IMPORT_DATA), con el mismo formato que nuestra base de datos: no hace
--- falta GatherMate2, que GatherMate2_Data exige para cargar. Si GatherMate2
+-- Solo si el jugador lo pide (boton en Opciones o /gr import), y solo los tipos
+-- marcados en Datos (importKinds). Los nodos de WoW Forever van incluidos en
+-- Data/Import*.lua (ns.IMPORT_DATA), con el mismo formato que nuestra base de
+-- datos: hierbas, menas y tesoros de GatherMate2_Data (Wowhead) y bancos de peces
+-- de AzerothCore (GatherMate2_Data no trae peces). No hace falta GatherMate2,
+-- que GatherMate2_Data exige para cargar. Si GatherMate2
 -- esta instalado, tambien se traen los nodos que el jugador guardo con el
 -- (GatherMate2HerbDB...). Solo se anaden los que faltan: lo que ya tienes no
 -- se toca y lo que cae cerca de un nodo tuyo se descarta.
@@ -24,7 +26,7 @@ function ns.ImportGatherMate()
     local data = ns.IMPORT_DATA or {}
     local lines = {}
     for _, kind in ipairs(ns.KIND_ORDER) do
-        if ns.db.kinds[kind] then
+        if ns.db.importKinds[kind] then
             local added = 0
             for _, source in ipairs({ data[kind], _G[GM2_DBS[kind]] }) do
                 if type(source) == "table" then added = added + ns.ImportKind(kind, source, Known(kind)) end
@@ -32,5 +34,6 @@ function ns.ImportGatherMate()
             table.insert(lines, L["KIND_" .. kind:upper()] .. ": " .. added)
         end
     end
+    if #lines == 0 then return print(ns.PREFIX .. L.IMPORT_NONE) end
     print(ns.PREFIX .. L.IMPORT_DONE .. " " .. table.concat(lines, ", "))
 end

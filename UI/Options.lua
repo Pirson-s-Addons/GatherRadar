@@ -177,6 +177,16 @@ StaticPopupDialogs["GATHERRADAR_CLEAR_ALL"] = {
     preferredIndex = 3,
 }
 
+StaticPopupDialogs["GATHERRADAR_FORGET_ALL"] = {
+    text = "", -- texto y OnAccept se ponen al mostrarlo (ver CreateData)
+    button1 = ACCEPT,
+    button2 = CANCEL,
+    timeout = 0,
+    whileDead = true,
+    hideOnEscape = true,
+    preferredIndex = 3,
+}
+
 local function CreateData()
     local ui = NewPanel(L.DATA_TITLE)
 
@@ -208,21 +218,45 @@ local function CreateData()
     desc:SetWidth(570)
     desc:SetJustifyH("LEFT")
     desc:SetText(L.IMPORT_DESC)
-    ui.Button(L.IMPORT, L.IMPORT_TOOLTIP, X, -284, 240, function()
+    -- Que tipos importa: hierbas y menas en una fila, tesoros y peces en otra
+    for i, kind in ipairs(ns.KIND_ORDER) do
+        local x = (i % 2 == 1) and X or COL2
+        local y = -286 - math.floor((i - 1) / 2) * 26
+        ui.Check(L["KIND_" .. kind:upper()], L.IMPORT_KIND_TOOLTIP, x, y,
+            function() return ns.db.importKinds[kind] end, function(v) ns.db.importKinds[kind] = v end)
+    end
+    ui.Button(L.IMPORT, L.IMPORT_TOOLTIP, X, -344, 240, function()
         ns.ImportGatherMate()
         ShowStats()
     end)
-    ui.Line(-322)
+    ui.Line(-382)
 
-    ui.Header(L.HEADER_CLEAR, -338)
-    ui.Button(L.CLEAR_ZONE, L.CLEAR_ZONE_TOOLTIP, X, -362, 200, function()
+    ui.Header(L.HEADER_CLEAR, -398)
+    ui.Button(L.CLEAR_ZONE, L.CLEAR_ZONE_TOOLTIP, X, -422, 200, function()
         local map = ns.PlayerPosition()
         if map then ns.ClearZone(map) end
         ShowStats()
     end)
-    ui.Button(L.CLEAR_ALL, L.CLEAR_ALL_TOOLTIP, COL2, -362, 200, function()
+    ui.Button(L.CLEAR_ALL, L.CLEAR_ALL_TOOLTIP, COL2, -422, 200, function()
         StaticPopupDialogs.GATHERRADAR_CLEAR_ALL.text = L.CLEAR_ALL_CONFIRM
         StaticPopup_Show("GATHERRADAR_CLEAR_ALL")
+    end)
+    ui.Line(-460)
+
+    ui.Header(L.HEADER_FORGET, -476)
+    local forget = ui.panel:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
+    forget:SetPoint("TOPLEFT", X, -498)
+    forget:SetWidth(570)
+    forget:SetJustifyH("LEFT")
+    forget:SetText(L.FORGET_DESC)
+    ui.Button(L.FORGET_ALL, L.FORGET_ALL_TOOLTIP, X, -530, 200, function()
+        StaticPopupDialogs.GATHERRADAR_FORGET_ALL.text = L.FORGET_ALL_CONFIRM
+        StaticPopupDialogs.GATHERRADAR_FORGET_ALL.OnAccept = function()
+            ns.ForgetAll()
+            print(ns.PREFIX .. L.FORGET_DONE)
+            ShowStats()
+        end
+        StaticPopup_Show("GATHERRADAR_FORGET_ALL")
     end)
     return ui.panel
 end

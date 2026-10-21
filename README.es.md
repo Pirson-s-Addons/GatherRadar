@@ -30,7 +30,7 @@
 - **Recuerda cada nodo**: los que recoges (posición exacta) y, si quieres, los que el escáner ve en el minimapa. Lo que está ahora brilla; lo recordado sale atenuado, porque quizá ya lo recogió otro.
 - **Pines en el mapa del mundo** con todos los nodos guardados de la zona. Mayús + clic derecho en un pin lo borra.
 - **Sin duplicados**: dos nodos del mismo tipo a menos de 15 yardas (tú eliges) son el mismo sitio y se queda solo uno.
-- **Nodos de Wowhead incluidos**: con un clic importas los nodos de WoW Forever de GatherMate2_Data (datos de Wowhead) que te faltan, sin necesitar otro addon. Los tuyos nunca se sustituyen.
+- **Nodos conocidos incluidos**: con un clic importas las hierbas, menas y tesoros de WoW Forever (datos de Wowhead de GatherMate2_Data) y los bancos de peces que te faltan, de los tipos que elijas, sin necesitar otro addon. Los tuyos nunca se sustituyen.
 - **Filtro en el mapa del mundo**: un botón redondo en el mapa elige qué tipos (hierbas, menas, tesoros, bancos de peces) salen en él.
 - **Flecha al nodo más cercano** con su nombre y distancia, dando prioridad a lo que hay ahora en el minimapa.
 - **Compartir con el grupo**: tus compañeros con GatherRadar ven los nodos que encuentras, y tú los suyos, en vivo.
@@ -49,7 +49,7 @@
 - Activa **Buscar hierbas**, **Buscar minerales**, **Buscar tesoros** o **Buscar peces** en el menú de rastreo del minimapa. GatherRadar hace el resto.
 - `/gr` abre las opciones. `/gr session` muestra el panel de sesión, `/gr arrow` la flecha, `/gr import` importa los nodos de Wowhead.
 - **Opciones → AddOns → GatherRadar → General**: qué se ve y dónde, el radar y el tamaño de los iconos.
-- **Opciones → AddOns → GatherRadar → Datos**: nodos guardados, duplicados, importar nodos de Wowhead y borrar.
+- **Opciones → AddOns → GatherRadar → Datos**: nodos guardados, duplicados, importar (eligiendo los tipos), borrar y olvidar todo.
 
 ## Notas
 

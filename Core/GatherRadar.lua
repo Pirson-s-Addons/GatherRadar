@@ -15,6 +15,7 @@ ns.PREFIX = "|cffd597ffGatherRadar|r: "
 local DEFAULTS = {
     kinds = { herb = true, ore = true, treasure = true, fish = true },
     mapKinds = { herb = true, ore = true, treasure = true, fish = true }, -- menu del boton del mapa
+    importKinds = { herb = true, ore = true, treasure = true, fish = true }, -- que importa "Importar"
     minimap = true,
     worldMap = true,
     arrow = false,

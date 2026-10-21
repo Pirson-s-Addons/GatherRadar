@@ -30,7 +30,7 @@
 - **Remembers every node**: the ones you gather (exact position) and, optionally, the ones the scan sees on the minimap. What is there right now shines; remembered nodes are faded, because someone may have gathered them.
 - **World map pins** for every saved node of the zone. Shift + right-click a pin to delete it.
 - **No duplicates**: two nodes of the same kind closer than 15 yards (you choose) are the same place and only one is kept.
-- **Wowhead nodes included**: one click imports the WoW Forever nodes of GatherMate2_Data (Wowhead data) you are missing, no other addon needed. Your own nodes are never replaced.
+- **Known nodes included**: one click imports the WoW Forever herbs, ore and treasure (Wowhead data from GatherMate2_Data) and fishing pools you are missing, the kinds you choose, no other addon needed. Your own nodes are never replaced.
 - **World map filter**: a round button on the world map chooses which kinds (herbs, ore, treasure, fishing pools) are shown there.
 - **Arrow to the nearest node** with its name and distance, preferring what is on the minimap right now.
 - **Party sharing**: group members with GatherRadar see the nodes you find, and you see theirs, live.
@@ -49,7 +49,7 @@
 - Turn on **Find Herbs**, **Find Minerals**, **Find Treasure** or **Find Fish** in the minimap tracking menu. GatherRadar does the rest.
 - `/gr` opens the settings. `/gr session` shows the session panel, `/gr arrow` the arrow, `/gr import` imports the Wowhead nodes.
 - **Options → AddOns → GatherRadar → General**: what to show and where, the radar and the icon sizes.
-- **Options → AddOns → GatherRadar → Data**: saved nodes, duplicates, Wowhead node import and delete.
+- **Options → AddOns → GatherRadar → Data**: saved nodes, duplicates, import (choose the kinds), delete and forget everything.
 
 ## Notes
 

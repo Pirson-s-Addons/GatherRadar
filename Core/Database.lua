@@ -236,6 +236,17 @@ function ns.ClearAll()
     ns.NodesChanged()
 end
 
+-- Olvidar todo: nodos, nombres e iconos aprendidos y la sesion. Los ajustes se
+-- quedan (para eso esta "Valores por defecto").
+function ns.ForgetAll()
+    ns.ClearAll()
+    wipe(ns.db.names)
+    wipe(ns.db.learned)
+    ns.db.nextLearned = 100000
+    if ns.live then wipe(ns.live) end
+    if ns.ResetSession then ns.ResetSession() end
+end
+
 -- Avisos a los pines: se juntan y se repintan una vez por frame
 local pending = false
 function ns.NodesChanged()
