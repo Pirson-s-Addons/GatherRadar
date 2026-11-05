@@ -21,7 +21,7 @@ local function Target()
     local w, h = ns.MapSize(map)
     local best, bestLive
     for _, kind in ipairs(ns.KIND_ORDER) do
-        if ns.db.kinds[kind] then
+        if ns.KindShown(kind) then
             ns.EachNode(kind, map, function(coord, id)
                 if ns.db.hard and ns.TooHard(id) then return end
                 local nx, ny = ns.Decode(coord)

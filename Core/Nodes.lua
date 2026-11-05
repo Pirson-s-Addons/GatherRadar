@@ -256,6 +256,11 @@ function ns.Difficulty(id)
     return need, skill, color
 end
 
+-- Tienes la profesion de ese tipo (los tesoros no piden ninguna)
+function ns.HasProfession(kind)
+    return not KINDS[kind].skill or Skill(kind) ~= false
+end
+
 function ns.TooHard(id)
     local need, skill = ns.Difficulty(id)
     return need ~= nil and (skill == false or skill < need)

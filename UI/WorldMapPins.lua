@@ -58,7 +58,7 @@ local function CreateProvider()
         local map = self:GetMap():GetMapID()
         if not (map and ns.db.worldMap) then return end
         for _, kind in ipairs(ns.KIND_ORDER) do
-            if ns.db.kinds[kind] and ns.db.mapKinds[kind] then
+            if ns.KindShown(kind) then
                 ns.EachNode(kind, map, function(coord, id)
                     self:GetMap():AcquirePin(TEMPLATE, kind, map, coord, id)
                 end)
@@ -79,7 +79,7 @@ local function UpdateMapButton()
     if not mapButton then return end
     local any = false
     for _, kind in ipairs(ns.KIND_ORDER) do
-        if ns.db.kinds[kind] and ns.db.mapKinds[kind] then any = true end
+        if ns.KindShown(kind) then any = true end
     end
     any = any and ns.db.worldMap
     mapButton.Icon:SetDesaturated(not any)
@@ -94,7 +94,7 @@ end
 local function Toggle(get, set)
     return function()
         set(not get())
-        ns.RefreshWorldMap()
+        ns.RefreshPins()
     end
 end
 

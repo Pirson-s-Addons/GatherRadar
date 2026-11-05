@@ -124,6 +124,12 @@ function ns.EachNode(kind, map, fn)
     if zone then for coord, id in pairs(zone) do fn(coord, id) end end
 end
 
+-- Lo que se pinta (minimapa, mapa del mundo y flecha): lo activo en General,
+-- que es lo que se detecta y se guarda, y marcado en el menu del boton del mapa
+function ns.KindShown(kind)
+    return ns.db.kinds[kind] and ns.db.mapKinds[kind]
+end
+
 -- ==========================================
 -- IMPORTAR Y LIMPIAR (muchos nodos de golpe)
 -- ==========================================

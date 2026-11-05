@@ -26,7 +26,6 @@ local DEFAULTS = {
     hard = true, -- aro rojo y la flecha se salta lo que no puedes recoger
     minimapSize = 14,
     worldMapSize = 14,
-    rememberedAlpha = 0.5,
     dedupe = 15,
 }
 ns.DEFAULTS = DEFAULTS
