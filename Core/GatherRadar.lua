@@ -20,7 +20,6 @@ local DEFAULTS = {
     worldMap = true,
     arrow = false,
     session = false,
-    scan = true,
     saveSeen = true,
     share = true,
     hard = true, -- aro rojo y la flecha se salta lo que no puedes recoger
@@ -87,7 +86,6 @@ end
 -- ARRANQUE
 -- ==========================================
 function ns.ApplySettings()
-    if ns.RescanNow then ns.RescanNow() end
     if ns.RefreshPins then ns.RefreshPins() end
     if ns.UpdateArrow then ns.UpdateArrow() end
     if ns.UpdateSession then ns.UpdateSession() end
@@ -123,13 +121,9 @@ driver:SetScript("OnEvent", function(self, event, name)
         if name ~= ADDON_NAME then return end
         self:UnregisterEvent("ADDON_LOADED")
         OnAddonLoaded()
-        -- Escaner y pines del minimapa, cada frame
-        self:SetScript("OnUpdate", function(_, elapsed)
-            ns.ScannerUpdate(elapsed)
-            ns.MinimapPinsUpdate(elapsed)
-        end)
+        -- Pines del minimapa, cada frame
+        self:SetScript("OnUpdate", function(_, elapsed) ns.MinimapPinsUpdate(elapsed) end)
     elseif ns.db then
-        ns.RescanNow()
         ns.RefreshPins()
     end
 end)

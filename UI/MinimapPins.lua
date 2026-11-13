@@ -7,11 +7,10 @@ local L = ns.L
 -- Cada nodo guardado cerca, de las profesiones que tienes, sale en el minimapa
 -- con el color de la probabilidad de subir habilidad (rojo: aun no puedes).
 -- Lo recordado sale como un aro hueco de ese color: si el nodo esta, el punto
--- del juego se ve dentro; si el aro esta vacio, ya no esta. Al pasar el raton
--- por el punto (o si lo ve el grupo) sale el icono de lo que da, mas grande y
--- con brillo. Un nodo nuevo late unos segundos.
--- Los pines dejan pasar el raton: debajo esta el punto del juego, cuyo tooltip
--- da el nombre (Core/Scanner.lua).
+-- del juego se ve dentro; si el aro esta vacio, ya no esta. Lo que avisa el
+-- grupo (Core/Scanner.lua) sale con el icono de lo que da, mas grande y con
+-- brillo. Un nodo nuevo late unos segundos.
+-- Los pines dejan pasar el raton: debajo esta el punto del juego y su tooltip.
 --
 -- Se recolocan solo si te mueves, giras o cambia el zoom, o cada LIVE_EVERY
 -- segundos (lo visto deja de estarlo).
