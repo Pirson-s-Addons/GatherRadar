@@ -4,14 +4,13 @@ local L = ns.L
 -- ==========================================
 -- PINES DEL MINIMAPA
 -- ==========================================
--- Los nodos guardados cerca, de las profesiones que tienes, salen en el
--- minimapa con el icono de lo que dan y un aro del color de la probabilidad de
--- subir habilidad (rojo: aun no puedes). Un nodo nuevo late unos segundos.
--- En Forever el escaner no puede saber cuales estan ahora (el nombre del
--- tooltip es secreto), asi que salen todos los guardados, esten o no.
+-- Lo que el escaner detecta ahora (o un companero de grupo), de las profesiones
+-- que tienes, sale en el minimapa con el icono de lo que da y un aro del color
+-- de la probabilidad de subir habilidad (rojo: aun no puedes). Lo recordado no
+-- sale aqui: para eso esta el mapa del mundo. Un nodo nuevo late unos segundos.
 --
 -- Se recolocan solo si te mueves, giras o cambia el zoom, o cada LIVE_EVERY
--- segundos (lo visto por el grupo deja de estarlo).
+-- segundos (lo detectado deja de estarlo).
 -- ponytail: solo los nodos del mapa en el que estas; en el borde entre dos
 -- zonas no salen los de la vecina.
 
@@ -50,7 +49,7 @@ function ns.NodeTooltip(owner, id, note)
 end
 
 local function ShowTooltip(pin)
-    ns.NodeTooltip(pin, pin.id, ns.IsLive(pin.kind, pin.map, pin.coord) and L.SEEN_NOW or nil)
+    ns.NodeTooltip(pin, pin.id, L.SEEN_NOW)
 end
 
 local function NewPin()
@@ -169,7 +168,7 @@ local function Update()
                     local east, north = (nx - x) * w, (y - ny) * h
                     if rotate then east, north = east * cos - north * sin, east * sin + north * cos end
                     local mx, my = east * scale, north * scale
-                    if mx * mx + my * my <= limit then
+                    if mx * mx + my * my <= limit and ns.IsLive(kind, map, coord) then
                         Place(kind, map, coord, id, mx, my)
                     end
                 end)
