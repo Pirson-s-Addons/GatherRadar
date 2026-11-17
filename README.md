@@ -1,24 +1,28 @@
-<h1 align="center">GatherRadar</h1>
+<p align="center"><a href="https://www.curseforge.com/wow/addons/gather-radar"><img src="https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-gr-en.svg" width="100%" alt="Gather Radar"/></a></p>
+
+<p align="center"><b>English</b> · <a href="README.es.md">Español</a></p>
 
 <p align="center">
-  <b>Herb & ore tracker for World of Warcraft: herbs, mining nodes, treasure and fishing pools on your minimap and world map</b>
+<a href="https://www.curseforge.com/wow/addons/gather-radar"><b>CurseForge</b></a> ·
+<a href="https://github.com/Pirson-s-Addons/GatherRadar/releases/latest"><b>Download</b></a>
 </p>
 
-<p align="center">
-<a href="https://github.com/Pirson-s-Addons/GatherRadar/releases/latest">
-<img src="https://img.shields.io/github/v/release/Pirson-s-Addons/GatherRadar?style=for-the-badge&color=A78BFA">
-</a>
-<img src="https://img.shields.io/badge/WoW_Forever-1.60.1-C4B5FD?style=for-the-badge">
-<a href="LICENSE">
-<img src="https://img.shields.io/badge/License-MIT-E9D5FF?style=for-the-badge">
-</a>
-</p>
+## Screenshots
 
-<p align="center">
-<a href="README.es.md">🇪🇸 Español</a>
-</p>
-
----
+<table>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/104/minimap-show-png.png" alt="Nodes on the minimap"><br><sub>Nodes on the minimap</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/105/map-options-png.png" alt="Choose what to show"><br><sub>Choose what to show</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/107/ore-png.png" alt="Ore veins"><br><sub>Ore veins</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/108/herb-png.png" alt="Herbs and the skill they need"><br><sub>Herbs and the skill they need</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/106/chest-png.png" alt="Treasure chests"><br><sub>Treasure chests</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/109/fish-png.png" alt="Fishing pools"><br><sub>Fishing pools</sub></td>
+</tr>
+</table>
 
 ## What it does
 
@@ -38,12 +42,6 @@
 - **Works in your language**: herbs, ore, treasure and fishing pools are recognized by their in-game name in every official language; nodes new to Forever are learned as you gather.
 - Settings in the game's own **Options → AddOns** panel, 20 languages, no libraries.
 
-## Installation
-
-1. Download the zip from [CurseForge](https://www.curseforge.com/wow/addons/gather-radar) or the [latest release](https://github.com/Pirson-s-Addons/GatherRadar/releases/latest).
-2. Extract the `GatherRadar` folder into `World of Warcraft/_classic_beta_/Interface/AddOns/`.
-3. Restart WoW and enable the addon.
-
 ## Usage
 
 - Turn on **Find Herbs**, **Find Minerals**, **Find Treasure** or **Find Fish** in the minimap tracking menu. GatherRadar does the rest.
@@ -51,7 +49,22 @@
 - **Options → AddOns → GatherRadar → General**: what to show and where, the radar and the icon sizes.
 - **Options → AddOns → GatherRadar → Data**: saved nodes, duplicates, import (choose the kinds), delete and forget everything.
 
-## API for addon authors
+## Installation
+
+1. Download the zip from [CurseForge](https://www.curseforge.com/wow/addons/gather-radar) or the [latest release](https://github.com/Pirson-s-Addons/GatherRadar/releases/latest).
+2. Extract the `GatherRadar` folder into `World of Warcraft/_classic_beta_/Interface/AddOns/`.
+3. Restart WoW and enable the addon.
+
+## Notes
+
+- Addons cannot ask the game where nodes are, and since Blizzard's API changes they cannot read the minimap at all (the tracking dot's name is secret, even under your own mouse). A remembered node is only a ring: an empty ring means someone may have gathered it.
+- Fishing pools come from the import and your party only (fishing loot comes from the bobber, not the pool, and the minimap cannot be read).
+- Nodes new to WoW Forever (Cold Iron Deposit, Dreamroot...) are recognized in English; in other languages their name is learned the first time you gather them. Herbs with an extra word in their name (Wilted Peacebloom) count as the herb.
+
+## For addon authors
+
+<details>
+<summary><b>Public API</b></summary>
 
 Read-only, versioned, always returns copies. Add `## OptionalDeps: GatherRadar` to your TOC and call it after `PLAYER_LOGIN`. Coordinates are 0-100 (like TomTom); node IDs are GatherMate2's.
 
@@ -67,13 +80,8 @@ if api and api.version == 1 then
     api.HasProfession("ore")         -- true if the player can gather it
 end
 ```
+</details>
 
-## Notes
+<br/>
 
-- Addons cannot ask the game where nodes are, and since Blizzard's API changes they cannot read the minimap at all (the tracking dot's name is secret, even under your own mouse). A remembered node is only a ring: an empty ring means someone may have gathered it.
-- Fishing pools come from the import and your party only (fishing loot comes from the bobber, not the pool, and the minimap cannot be read).
-- Nodes new to WoW Forever (Cold Iron Deposit, Dreamroot...) are recognized in English; in other languages their name is learned the first time you gather them. Herbs with an extra word in their name (Wilted Peacebloom) count as the herb.
-
----
-
-**Author**: Pirson · [GitHub](https://github.com/Pirson-s-Addons) · [CurseForge](https://www.curseforge.com/members/pirson/projects) · MIT License
+<p align="center"><a href="https://github.com/Pirson-s-Addons"><img src="https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-footer-en.svg" width="100%" alt="Part of Pirson's Addons. See all addons."/></a></p>

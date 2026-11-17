@@ -1,24 +1,28 @@
-<h1 align="center">GatherRadar</h1>
+<p align="center"><a href="https://www.curseforge.com/wow/addons/gather-radar"><img src="https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-gr-es.svg" width="100%" alt="Gather Radar"/></a></p>
+
+<p align="center"><a href="README.md">English</a> · <b>Español</b></p>
 
 <p align="center">
-  <b>Rastreador de hierbas y menas para World of Warcraft: hierbas, minería, tesoros y bancos de peces en el minimapa y el mapa del mundo</b>
+<a href="https://www.curseforge.com/wow/addons/gather-radar"><b>CurseForge</b></a> ·
+<a href="https://github.com/Pirson-s-Addons/GatherRadar/releases/latest"><b>Descargar</b></a>
 </p>
 
-<p align="center">
-<a href="https://github.com/Pirson-s-Addons/GatherRadar/releases/latest">
-<img src="https://img.shields.io/github/v/release/Pirson-s-Addons/GatherRadar?style=for-the-badge&color=A78BFA">
-</a>
-<img src="https://img.shields.io/badge/WoW_Forever-1.60.1-C4B5FD?style=for-the-badge">
-<a href="LICENSE">
-<img src="https://img.shields.io/badge/License-MIT-E9D5FF?style=for-the-badge">
-</a>
-</p>
+## Capturas
 
-<p align="center">
-<a href="README.md">🇬🇧 English</a>
-</p>
-
----
+<table>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/104/minimap-show-png.png" alt="Nodos en el minimapa"><br><sub>Nodos en el minimapa</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/105/map-options-png.png" alt="Elige qué mostrar"><br><sub>Elige qué mostrar</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/107/ore-png.png" alt="Vetas de mineral"><br><sub>Vetas de mineral</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/108/herb-png.png" alt="Hierbas y la habilidad que piden"><br><sub>Hierbas y la habilidad que piden</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/106/chest-png.png" alt="Cofres de tesoro"><br><sub>Cofres de tesoro</sub></td>
+<td align="center" width="50%"><img src="https://media.forgecdn.net/attachments/2087/109/fish-png.png" alt="Bancos de peces"><br><sub>Bancos de peces</sub></td>
+</tr>
+</table>
 
 ## Qué hace
 
@@ -38,12 +42,6 @@
 - **Funciona en tu idioma**: hierbas, menas, tesoros y bancos de peces se reconocen por su nombre del juego en todos los idiomas oficiales; los nodos nuevos de Forever se aprenden al recoger.
 - Opciones en el propio panel del juego **Opciones → AddOns**, 20 idiomas, sin librerías.
 
-## Instalación
-
-1. Descarga el zip de [CurseForge](https://www.curseforge.com/wow/addons/gather-radar) o de la [última versión](https://github.com/Pirson-s-Addons/GatherRadar/releases/latest).
-2. Extrae la carpeta `GatherRadar` en `World of Warcraft/_classic_beta_/Interface/AddOns/`.
-3. Reinicia WoW y activa el addon.
-
 ## Uso
 
 - Activa **Buscar hierbas**, **Buscar minerales**, **Buscar tesoros** o **Buscar peces** en el menú de rastreo del minimapa. GatherRadar hace el resto.
@@ -51,7 +49,24 @@
 - **Opciones → AddOns → GatherRadar → General**: qué se ve y dónde, el radar y el tamaño de los iconos.
 - **Opciones → AddOns → GatherRadar → Datos**: nodos guardados, duplicados, importar (eligiendo los tipos), borrar y olvidar todo.
 
-## API para autores de addons
+## Instalación
+
+1. Descarga el zip de [CurseForge](https://www.curseforge.com/wow/addons/gather-radar) o de la [última versión](https://github.com/Pirson-s-Addons/GatherRadar/releases/latest).
+2. Extrae la carpeta `GatherRadar` en `World of Warcraft/_classic_beta_/Interface/AddOns/`.
+3. Reinicia WoW y activa el addon.
+
+## Notas
+
+- Un addon no puede preguntar al juego dónde están los nodos y, desde los cambios de Blizzard en la API, tampoco puede leer el minimapa (el nombre del punto del rastreo es secreto, incluso bajo tu propio ratón). Un nodo recordado es solo un aro: si está vacío, puede que ya lo haya recogido alguien.
+- Los bancos de peces llegan solo de la importación y de tu grupo (el botín de pesca sale del corcho, no del banco, y el minimapa no se puede leer).
+- Los nodos nuevos de WoW Forever (Cold Iron Deposit, Dreamroot...) se reconocen en inglés; en otros idiomas su nombre se aprende la primera vez que los recoges. Las hierbas con una palabra de más (Flor de paz marchita) cuentan como la hierba.
+
+**Autor**: Pirson · [GitHub](https://github.com/Pirson-s-Addons) · [CurseForge](https://www.curseforge.com/members/pirson/projects) · Licencia MIT
+
+## Para autores de addons
+
+<details>
+<summary><b>API pública</b></summary>
 
 De solo lectura, con versión y siempre devuelve copias. Añade `## OptionalDeps: GatherRadar` a tu TOC y llámala después de `PLAYER_LOGIN`. Las coordenadas van de 0 a 100 (como TomTom) y los IDs de nodo son los de GatherMate2.
 
@@ -67,13 +82,8 @@ if api and api.version == 1 then
     api.HasProfession("ore")         -- true si el jugador puede recogerlo
 end
 ```
+</details>
 
-## Notas
+<br/>
 
-- Un addon no puede preguntar al juego dónde están los nodos y, desde los cambios de Blizzard en la API, tampoco puede leer el minimapa (el nombre del punto del rastreo es secreto, incluso bajo tu propio ratón). Un nodo recordado es solo un aro: si está vacío, puede que ya lo haya recogido alguien.
-- Los bancos de peces llegan solo de la importación y de tu grupo (el botín de pesca sale del corcho, no del banco, y el minimapa no se puede leer).
-- Los nodos nuevos de WoW Forever (Cold Iron Deposit, Dreamroot...) se reconocen en inglés; en otros idiomas su nombre se aprende la primera vez que los recoges. Las hierbas con una palabra de más (Flor de paz marchita) cuentan como la hierba.
-
----
-
-**Autor**: Pirson · [GitHub](https://github.com/Pirson-s-Addons) · [CurseForge](https://www.curseforge.com/members/pirson/projects) · Licencia MIT
+<p align="center"><a href="https://github.com/Pirson-s-Addons"><img src="https://raw.githubusercontent.com/Pirson-s-Addons/.github/main/profile/assets/readme-footer-es.svg" width="100%" alt="Parte de Pirson's Addons. Ver todos los addons."/></a></p>
