@@ -52,7 +52,7 @@
 ## Installation
 
 1. Download the zip from [CurseForge](https://www.curseforge.com/wow/addons/gather-radar) or the [latest release](https://github.com/Pirson-s-Addons/GatherRadar/releases/latest).
-2. Extract the `GatherRadar` folder into `World of Warcraft/_classic_beta_/Interface/AddOns/`.
+2. Extract the `GatherRadar` folder into `World of Warcraft/_forever_/Interface/AddOns/`.
 3. Restart WoW and enable the addon.
 
 ## Notes
