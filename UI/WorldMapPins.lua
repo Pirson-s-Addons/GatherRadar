@@ -114,7 +114,12 @@ local function SetupMenu(button)
             ns.UpdateArrow()
         end)
         root:CreateButton(L.MAP_MENU_OPTIONS, function()
-            if not InCombatLockdown() then HideUIPanel(WorldMapFrame) end
+            -- Con la interfaz de mando, cerrar un panel del juego desde un addon es una accion
+            -- bloqueada (SetPreferredGamepadInteractTarget): el mapa se queda abierto
+            local T = Enum and Enum.InputDeviceInterfaceType
+            local pad = T and T.Gamepad and C_InputInterfaceStyle and C_InputInterfaceStyle.GetCurrentStyle
+                and C_InputInterfaceStyle.GetCurrentStyle() == T.Gamepad
+            if not InCombatLockdown() and not pad then HideUIPanel(WorldMapFrame) end
             ns.OpenOptions()
         end)
     end)

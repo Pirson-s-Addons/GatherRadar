@@ -144,3 +144,9 @@ SlashCmdList.GATHERRADAR = function(msg)
         ns.OpenOptions()
     end
 end
+
+-- Menu de addons del minimapa (## AddonCompartmentFunc del .toc): lo mismo que el comando
+function GatherRadar_OnAddonCompartmentClick()
+    local open = SlashCmdList and SlashCmdList.GATHERRADAR
+    if open then open("") end
+end

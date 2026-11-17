@@ -1,5 +1,5 @@
 ## Interface: 16001
-## Version: 1.04
+## Version: 1.05
 ## Author: Pirson
 ## IconTexture: Interface\AddOns\GatherRadar\img\logo_gr
 ## Title: |cffd597ffGatherRadar|r
@@ -98,6 +98,11 @@
 ## SavedVariables: GatherRadarDB
 ## OptionalDeps: GatherMate2
 ## X-Curse-Project-ID: 1757790
+## X-License: MIT
+## X-Copyright: Copyright (c) 2026 Pirson
+## X-Website: https://github.com/Pirson-s-Addons/GatherRadar
+## X-Localizations: enUS, esES, esMX, deDE, frFR, itIT, ptBR, ruRU, koKR, zhCN, zhTW, plPL, svSE, noNO, trTR, jaJP, arSA, hiIN, thTH, viVN, csCZ
+## AddonCompartmentFunc: GatherRadar_OnAddonCompartmentClick
 
 # Solo WoW Forever: el sufijo _Camelot es el game type que busca ese cliente.
 # GatherRadar.toc es copia exacta de este: la app de CurseForge exige <Carpeta>.toc
