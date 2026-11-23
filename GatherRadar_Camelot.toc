@@ -98,6 +98,7 @@
 ## SavedVariables: GatherRadarDB
 ## OptionalDeps: GatherMate2
 ## X-Curse-Project-ID: 1757790
+## X-Wago-ID: qGZAMoKd
 ## X-License: MIT
 ## X-Copyright: Copyright (c) 2026 Pirson
 ## X-Website: https://github.com/Pirson-s-Addons/GatherRadar
