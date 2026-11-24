@@ -145,6 +145,7 @@ UI/MinimapPins.lua
 UI/WorldMapPins.lua
 UI/Arrow.lua
 UI/Session.lua
+UI/Tracking.lua
 UI/Options.lua
 UI/WorldMapPins.xml
 Core/API.lua

@@ -22,6 +22,9 @@ local DEFAULTS = {
     session = false,
     saveSeen = true,
     share = true,
+    trackingAlert = true, -- aviso al entrar o revivir sin Buscar hierbas/minerales
+    trackingButton = true, -- boton para volver a lanzarlo
+    trackingLocked = true,
     hard = true, -- aro rojo y la flecha se salta lo que no puedes recoger
     minimapSize = 14,
     worldMapSize = 14,
@@ -89,6 +92,7 @@ function ns.ApplySettings()
     if ns.RefreshPins then ns.RefreshPins() end
     if ns.UpdateArrow then ns.UpdateArrow() end
     if ns.UpdateSession then ns.UpdateSession() end
+    if ns.UpdateTracking then ns.UpdateTracking() end
 end
 
 local function OnAddonLoaded()
@@ -101,6 +105,7 @@ local function OnAddonLoaded()
     db.nextLearned = db.nextLearned or 100000
     db.arrowPos = db.arrowPos or {}
     db.sessionPos = db.sessionPos or {}
+    db.trackingPos = db.trackingPos or {}
     if db.dedupe < 5 then db.dedupe = 5 end
     ns.db = db
 
@@ -108,6 +113,7 @@ local function OnAddonLoaded()
     ns.SetupCollector()
     ns.SetupComm()
     ns.SetupWorldMapPins()
+    ns.SetupTracking()
     ns.CreateOptions()
     ns.ApplySettings()
 end
