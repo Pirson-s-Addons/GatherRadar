@@ -1,5 +1,5 @@
 ## Interface: 16001
-## Version: 1.06
+## Version: 1.07
 ## Author: Pirson
 ## IconTexture: Interface\AddOns\GatherRadar\img\logo_gr
 ## Title: |cffd597ffGatherRadar|r

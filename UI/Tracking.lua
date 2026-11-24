@@ -65,23 +65,40 @@ local function State()
     return (last and IsPlayerSpell(last)) and last or first, true
 end
 
+-- Posicion guardada: desplazamiento desde el centro de la pantalla (arrastre u opciones)
+local function ApplyPosition()
+    button:ClearAllPoints()
+    button:SetPoint("CENTER", UIParent, "CENTER", ns.db.trackingX, ns.db.trackingY)
+end
+
 local function SavePosition()
     button:StopMovingOrSizing()
-    local pos = ns.db.trackingPos
-    local point, _, relPoint, x, y = button:GetPoint()
-    pos.point, pos.relPoint, pos.x, pos.y = point, relPoint, x, y
+    local cx, cy = button:GetCenter()
+    local ux, uy = UIParent:GetCenter()
+    ns.db.trackingX = math.floor(cx - ux + 0.5)
+    ns.db.trackingY = math.floor(cy - uy + 0.5)
+    ApplyPosition()
+end
+
+-- Vuelve el boton a su sitio por defecto (lo llama la opcion de restablecer)
+function ns.ResetTrackingPosition()
+    ns.db.trackingX, ns.db.trackingY = 0, 260
+    ns.ApplySettings()
 end
 
 local function CreateButton()
     button = CreateFrame("Button", "GatherRadarTrackingButton", UIParent, "SecureActionButtonTemplate")
     button:SetSize(SIZE, SIZE)
-    local pos = ns.db.trackingPos
-    button:SetPoint(pos.point or "TOPRIGHT", UIParent, pos.relPoint or "TOPRIGHT", pos.x or -230, pos.y or -60)
     button:SetClampedToScreen(true)
     button:SetMovable(true)
     button:RegisterForClicks("AnyUp", "AnyDown") -- el boton seguro filtra segun ActionButtonUseKeyDown
     button:SetAttribute("type", "spell")
-    button:SetScript("OnDragStart", button.StartMoving)
+    button:SetAttribute("shift-type1", "") -- shift + clic arrastra, no lanza el hechizo
+    -- Se mueve al arrastrar si esta desbloqueado, o con Shift tambien bloqueado
+    button:SetScript("OnDragStart", function(self)
+        if ns.db.trackingLocked and not IsShiftKeyDown() then return end
+        self:StartMoving()
+    end)
     button:SetScript("OnDragStop", SavePosition)
 
     button.icon = button:CreateTexture(nil, "ARTWORK")
@@ -103,6 +120,7 @@ local function CreateButton()
         GameTooltip:SetOwner(self, "ANCHOR_BOTTOMLEFT")
         GameTooltip:AddLine("|cffd597ffGatherRadar|r")
         GameTooltip:AddLine(ns.db.trackingLocked and L.TRACKING_BUTTON_TOOLTIP or L.TRACKING_DRAG_TOOLTIP, 1, 1, 1, true)
+        if ns.db.trackingLocked then GameTooltip:AddLine(L.TRACKING_SHIFT_HINT, 0.7, 0.7, 0.7, true) end
         GameTooltip:Show()
     end)
     button:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -123,12 +141,13 @@ local function UpdateButton(id, missing)
         return
     end
     if not button then CreateButton() end
+    ApplyPosition()
     id = id or ns.KINDS.herb.finder
     button:SetAttribute("spell", id)
     button.icon:SetTexture(SpellIcon(id))
     button.label:SetText(unlocked and L.TRACKING_DRAG or SpellName(id))
     button.glow:SetShown(missing)
-    if unlocked then button:RegisterForDrag("LeftButton") else button:RegisterForDrag() end
+    button:RegisterForDrag("LeftButton")
     button:Show()
 end
 

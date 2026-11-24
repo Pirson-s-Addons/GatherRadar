@@ -25,6 +25,8 @@ local DEFAULTS = {
     trackingAlert = true, -- aviso al entrar o revivir sin Buscar hierbas/minerales
     trackingButton = true, -- boton para volver a lanzarlo
     trackingLocked = true,
+    trackingX = 0, -- posicion del boton: desplazamiento desde el centro de la pantalla
+    trackingY = 260,
     hard = true, -- aro rojo y la flecha se salta lo que no puedes recoger
     minimapSize = 14,
     worldMapSize = 14,
@@ -105,7 +107,6 @@ local function OnAddonLoaded()
     db.nextLearned = db.nextLearned or 100000
     db.arrowPos = db.arrowPos or {}
     db.sessionPos = db.sessionPos or {}
-    db.trackingPos = db.trackingPos or {}
     if db.dedupe < 5 then db.dedupe = 5 end
     ns.db = db
 
