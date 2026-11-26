@@ -1,5 +1,5 @@
 ## Interface: 16001
-## Version: 1.07
+## Version: 1.08
 ## Author: Pirson
 ## IconTexture: Interface\AddOns\GatherRadar\img\logo_gr
 ## Title: |cffd597ffGatherRadar|r
@@ -96,7 +96,7 @@
 ## Notes-viVN: |cFF33CCFFTheo dõi thảo dược và quặng: thảo dược, mỏ quặng, kho báu và đàn cá trên bản đồ nhỏ và bản đồ thế giới kèm biểu tượng. Ghi nhớ điểm, mũi tên, chia sẻ với nhóm, nhập GatherMate2_Data.|r
 
 ## SavedVariables: GatherRadarDB
-## OptionalDeps: GatherMate2
+## OptionalDeps: ProfessionReagents
 ## X-Curse-Project-ID: 1757790
 ## X-Wago-ID: qGZAMoKd
 ## X-License: MIT
